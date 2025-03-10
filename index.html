@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>島根県1352 遊漁船ファミリア</title>
+  <link rel="icon" href="./images/favicon.ico" sizes="32x32">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #ffffff;
+    }
+
+    header,
+    footer {
+      background-color: #2196F3;
+      padding: 10px 0;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburger = document.querySelector('.hamburger');
+      const nav = document.querySelector('.nav');
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+
+        // アクセシビリティ対応
+        const isOpen = hamburger.classList.contains('active');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        nav.setAttribute('aria-hidden', !isOpen);
+      });
+
+      // メニューの外側をクリックした時の処理
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav') && !e.target.closest('.hamburger') && nav.classList.contains('active')) {
+          hamburger.classList.remove('active');
+          nav.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', false);
+          nav.setAttribute('aria-hidden', true);
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="./images/famipaka.jpg" width="50" height="50">
+      <h1>島根県1352 遊漁船ファミリア</h1>
+    </div>
+
+    <button class="hamburger" aria-label="メニュー" aria-controls="nav-menu" aria-expanded="false">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </button>
+
+    <nav id="nav-menu" class="nav" aria-hidden="true">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="#greeting" class="nav__link">挨拶</a></li>
+        <li class="nav__item"><a href="#pricing" class="nav__link">料金</a></li>
+        <li class="nav__item"><a href="#boat" class="nav__link">船の紹介</a></li>
+        <li class="nav__item"><a href="#captain" class="nav__link">船長の紹介</a></li>
+        <li class="nav__item"><a href="#boarding" class="nav__link">乗船案内</a></li>
+        <li class="nav__item"><a href="#schedule" class="nav__link">出船スケジュール</a></li>
+        <li class="nav__item"><a href="#safety" class="nav__link">安全情報</a></li>
+        <li class="nav__item"><a href="#links" class="nav__link">リンク</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <div class="hero-content">
+      <h2>自然とともに最高の釣り体験を！</h2>
+      <p>澄み切った海と豊かな自然の中で、心に残る釣りを体験しましょう。</p>
+      <a href="#schedule" class="cta-btn">出船スケジュールを見る</a>
+    </div>
+  </section>
+
+  <section id="greeting">
+    <h2>挨拶</h2>
+    <p>島根県1352 遊漁船ファミリアへようこそ！</p>
+  </section>
+
+  <section id="pricing">
+    <h2>料金</h2>
+    <p>各プランの料金はこちらです。</p>
+  </section>
+
+  <section id="boat">
+    <h2>船の紹介</h2>
+    <p>設備の整った快適な船です。</p>
+    <img src="./images/ship/boat.jpg" width="50" height="50">
+  </section>
+
+  <section id="captain">
+    <h2>船長の紹介</h2>
+    <p>経験豊富な船長がご案内します。</p>
+  </section>
+
+  <section id="boarding">
+    <h2>乗船案内</h2>
+    <p>乗船に関する情報をお知らせします。</p>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.332206434972!2d132.9886045760353!3d35.52078737263946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35570f176e890f03%3A0x6d3868fb40fb458c!2z6bm_5bO244Oe44Oq44O844OK77yI5qCq77yJ!5e0!3m2!1sja!2sjp!4v1703740218129!5m2!1sja!2sjp"
+      width="600" height="450" style="border:0;" frameborder="0"></iframe>
+    <img src="./images/jousenn.jpg">
+  </section>
+
+  <section id="schedule">
+    <h2>出船スケジュール</h2>
+    <p>今月の出船予定はこちらです。</p>
+  </section>
+
+  <section id="safety">
+    <h2>安全情報</h2>
+    <div class="slideshow-container">
+      <button id="prevBtn" class="prev">&#10094;</button>
+      <img class="slides" src="safety1.jpg" alt="ライフジャケット着用">
+      <img class="slides" src="safety2.jpg" alt="悪天候時の対策">
+      <img class="slides" src="safety3.jpg" alt="船上での安全ルール">
+      <button id="nextBtn" class="next">&#10095;</button>
+    </div>
+  </section>
+
+  <section id="links">
+    <h2>リンク</h2>
+    <p>関連情報へのリンクを掲載します。</p>
+  </section>
+
+  <section>
+    <h2>天気</h2>
+    <iframe width="380" height="350"
+      src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=default&metricTemp=°C&metricWind=m/s&zoom=9&overlay=wind&product=ecmwf&level=surface&lat=35.872&lon=133.096&message=true"
+      frameborder="0"></iframe>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 島根県1352 遊漁船ファミリア. All Rights Reserved.</p>
+  </footer>
+</body>
+
+</html>
