@@ -4,10 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>島根県1352 遊漁船ファミリア</title>
+  <title>SLJ・LJの山陰遊漁船ファミリア</title>
   <link rel="icon" href="./images/favicon.ico" sizes="32x32">
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href=”https://use.fontawesome.com/releases/v6.0.0/css/all.css” rel=”stylesheet”>
+  <script src="https://kit.fontawesome.com/e172613f19.js" crossorigin="anonymous"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const hamburger = document.querySelector('.hamburger');
@@ -23,15 +25,29 @@
         nav.setAttribute('aria-hidden', !isOpen);
       });
 
+
+      function closeDisplayMenu() {
+        hamburger.classList.remove('active');
+        nav.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', false);
+        nav.setAttribute('aria-hidden', true);
+      }
+
       // メニューの外側をクリックした時の処理
       document.addEventListener('click', (e) => {
         if (!e.target.closest('.nav') && !e.target.closest('.hamburger') && nav.classList.contains('active')) {
-          hamburger.classList.remove('active');
-          nav.classList.remove('active');
-          hamburger.setAttribute('aria-expanded', false);
-          nav.setAttribute('aria-hidden', true);
+          closeDisplayMenu()
         }
       });
+
+      // 表示されたメニューの項目をクリックした時の処理
+      const display_menu = document.querySelector('.nav__list');
+      display_menu.addEventListener('click', () => {
+        if (display_menu.closest('#nav-menu').classList.contains('active')) {
+          closeDisplayMenu()
+        }
+      });
+
 
       const slides = document.querySelectorAll(".slides");
       let currentIndex = 0;
@@ -66,6 +82,14 @@
     <div class="logo">
       <img src="./images/famipaka.jpg" id="icon">
       <h1>島根県1352<br> 遊漁船ファミリア</h1>
+      <p>　　　　</p>
+      <a href="https://www.instagram.com/familiar_matsue/" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-instagram fa-2x"></i>
+      </a>
+      <p>&nbsp;</p>
+      <a href="https://lin.ee/fipwyGn" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-line fa-2x"></i>
+      </a>
     </div>
 
     <button class="hamburger" aria-label="メニュー" aria-controls="nav-menu" aria-expanded="false">
@@ -77,12 +101,13 @@
     <nav id="nav-menu" class="nav" aria-hidden="true">
       <ul class="nav__list">
         <li class="nav__item"><a href="#greeting" class="nav__link">挨拶</a></li>
-        <li class="nav__item"><a href="#pricing" class="nav__link">料金</a></li>
+        <li class="nav__item"><a href="#schedule" class="nav__link">出船スケジュール</a></li>
+        <li class="nav__item"><a href="#pricing" class="nav__link">乗船料金</a></li>
         <li class="nav__item"><a href="#boat" class="nav__link">船の紹介</a></li>
         <li class="nav__item"><a href="#captain" class="nav__link">船長の紹介</a></li>
         <li class="nav__item"><a href="#boarding" class="nav__link">乗船案内</a></li>
-        <li class="nav__item"><a href="#schedule" class="nav__link">出船スケジュール</a></li>
         <li class="nav__item"><a href="#safety" class="nav__link">安全情報</a></li>
+        <li class="nav__item"><a href="#weather" class="nav__link">天気</a></li>
         <li class="nav__item"><a href="#links" class="nav__link">リンク</a></li>
       </ul>
     </nav>
@@ -94,39 +119,22 @@
 
   <section id="greeting">
     <img src="./images/background/familiar_string.jpg">
-    <p>ホームページへようこそ！<br>元学校の先生が優しく楽しく釣り場をご案内します！<br>ぜひ、釣行をサポートさせてください！お問合せお待ちしております。</p>
-    <img src="./images/fish.jpg">
+    <p>ホームページへようこそ。元学校の先生が優しく楽しく釣り場をご案内します。<br>ご予約は以下のLINEまでお願いします！</p>
+    <br>
+    <a href="https://lin.ee/fipwyGn">
+      <img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" width="121.2" height="38">
+    </a>
+  </section>
+
+  <section id="schedule">
+    <h2>出船スケジュール</h2>
+    <div class="iframe-container">
+      <iframe src="https://calendar.google.com/calendar/embed?src=familiar.slj%40gmail.com&ctz=Asia%2FTokyo"></iframe>
+    </div>
   </section>
 
   <section id="pricing">
-    <h2>メニューおよび料金</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>出船形式(定員)</th>
-          <th>説明</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="highlight">
-          <td>乗合<br>（６）</td>
-          <td>お客様どうし互いに乗り合わせて出船します。</td>
-        </tr>
-        <tr>
-          <td>チャーター<br>（７）</td>
-          <td>船を貸切で出船します。</td>
-        </tr>
-        <tr class="highlight">
-          <td>ファミリー<br>チャーター<br>（７）</td>
-          <td>ご家族で船を貸切で出船します。</td>
-        </tr>
-        <tr>
-          <td>レディース<br>チャーター<br>（７）</td>
-          <td>女性のお仲間内で船を貸し切って出船します。</td>
-        </tr>
-      </tbody>
-    </table>
-
+    <h2>乗船料金</h2>
     <table>
       <thead>
         <tr>
@@ -136,44 +144,16 @@
       </thead>
       <tbody>
         <tr>
-          <td>SLJ&LJ</td>
+          <td>ジギング・タイラバ・アジング</td>
           <td>通年</td>
         </tr>
         <tr>
-          <td>スーパーライトジギング</td>
-          <td>通年</td>
-        </tr>
-        <tr>
-          <td>ライトジギング</td>
-          <td>通年</td>
-        </tr>
-        <tr>
-          <td>ネギング</td>
-          <td>通年</td>
-        </tr>
-        <tr>
-          <td>タイラバ</td>
-          <td>通年</td>
-        </tr>
-        <tr>
-          <td>ボートロック</td>
+          <td>ボートロック・白イカ</td>
           <td>6〜9月</td>
-        </tr>
-        <tr>
-          <td>白イカ</td>
-          <td>6〜9月</td>
-        </tr>
-        <tr>
-          <td>アジング</td>
-          <td>4〜5月</td>
         </tr>
         <tr>
           <td>ティップラン</td>
           <td>9〜11月</td>
-        </tr>
-        <tr>
-          <td>調査便</td>
-          <td>不定期</td>
         </tr>
       </tbody>
     </table>
@@ -187,39 +167,26 @@
       </thead>
       <tbody>
         <tr class="highlight">
-          <td>乗合<br> (ジギング、ネギング、ボートロック、ティップラン)</td>
-          <td>¥13,000/お一人様</td>
+          <td>乗合(ジギング、タイラバ、ティップラン)</td>
+          <td>¥13,000〜/1名<br>遠征は追加料金をいただきます</td>
         </tr>
         <tr>
-          <td>乗合 <br>(白イカ, アジ)</td>
-          <td>¥11,000/お一人様</td>
+          <td>乗合(白イカ, アジ)</td>
+          <td>¥11,000/1名</td>
         </tr>
         <tr class="highlight">
           <td>チャーター</td>
           <td>¥66,000（7人目ご乗船の場合は +¥11,000）</td>
         </tr>
-        <tr>
-          <td>ファミリー<br>チャーター</td>
-          <td>¥60,000（7人目ご乗船の場合は +¥10,000）</td>
-        </tr>
-        <tr class="highlight">
-          <td>レディース<br>チャーター</td>
-          <td>¥60,000（7人目ご乗船の場合は +¥10,000）</td>
-        </tr>
-        <tr class="highlight">
-          <td>調査便</td>
-          <td>¥6,000/お一人様</td>
-        </tr>
       </tbody>
     </table>
-    <p>※白イカ、アジングでのチャーターは上記金額から¥4,000お値引します。</p>
-    <p>※現金でのお支払いとなります。</p>
-
+    <p>※チャーター（白イカ・アジング）は¥6,000値引</p>
+    <p>※お支払は現金のみ</p>
   </section>
 
   <section id="boat">
     <h2>船の紹介</h2>
-    <p>26ft</p>
+    <p> ヤマハ26ft（175馬力）</p>
     <p>釣り定員6名(チャーターは7名)</p>
     <p>水洗マリントイレ</p>
     <img src="./images/ship/boat.jpg">
@@ -245,26 +212,21 @@
     </div>
     <br>
     <h3>乗船手順</h3>
-    <ul>
-      <li>赤矢印に沿って、鹿島マリーナゲート入場後、<strong>①もしくは②の駐車場</strong>にお車をお止めください。</li>
-      <li>サービス桟橋（<strong>赤の部分</strong>）に荷物を下ろし、その後お車をマリーナ外部の<strong>③〜⑤の駐車場</strong>に移動してください。</li>
-      <li>お忘れ物やトイレを済ませたら、サービス桟橋で待機してください。</li>
-      <li>集合時間になったら、サービス桟橋（<strong>赤の部分</strong>）に船を付けます。</li>
-      <li>人数や釣り座を決めた後、お荷物を積み込みます。積み込みは船長の指示に従ってください。</li>
-    </ul>
-    <br>
-    <h3>諸注意</h3>
-    <ul>
-      <li><strong>黄色で示された駐車場</strong>はマリーナ契約者専用となっているため、利用はお控えください。</li>
-      <li>魚釣りの場合、船に常設されている共用クーラーを使用します。飲食用のクーラーを除き、お客様ご自身のクーラーの積み込みはご遠慮ください。</li>
-    </ul>
+    <ol>
+      <li>鹿島マリーナ入場後、①もしくは②の駐車場にお車をお止めください。</li>
+      <li>赤のサービス桟橋に荷物を下ろし、お車をマリーナ外部の③〜⑤の駐車場に移動してください。</li>
+      <li>トイレを済ませてサービス桟橋で待機してください。</li>
+      <li>集合時間にサービス桟橋に船を付けます。</li>
+      <li>人数や釣り座を決めた後に荷物を積み込みます。</li>
+    </ol>
     <br>
     <img src="./images/jousenn.jpg">
-  </section>
-
-  <section id="schedule">
-    <h2>出船スケジュール</h2>
-    <p>今月の出船予定はこちらです。</p>
+    <h3>注意</h3>
+    <ul>
+      <li><strong>黄色で示された駐車場</strong>はマリーナ契約者専用となっているため、利用はお控えください。</li>
+      <li>魚釣りの場合、常設の共用クーラーを使用します。飲食用のクーラーを除き、お客様ご自身のクーラーの積み込みはご遠慮ください。</li>
+    </ul>
+    <br>
   </section>
 
   <section id="safety">
@@ -283,19 +245,39 @@
     </div>
   </section>
 
-  <section id="links">
-    <h2>リンク</h2>
-    <p>関連情報へのリンクを掲載します。</p>
-  </section>
-
-  <section>
+  <section id="weather">
     <h2>天気</h2>
     <div class="iframe-container">
       <iframe
-        src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=default&metricTemp=°C&metricWind=m/s&zoom=9&overlay=wind&product=ecmwf&level=surface&lat=35.872&lon=133.096&message=true"
-        frameborder="0" allowfullscreen>
-      </iframe>
+        src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=default&metricTemp=°C&metricWind=m/s&zoom=8&overlay=wind&product=ecmwf&level=surface&lat=35.872&lon=133.096&message=true"
+        frameborder="0" allowfullscreen></iframe>
     </div>
+  </section>
+
+  <section id="links">
+    <h2>リンク</h2>
+    <ul>
+      <li>
+        <a href="https://tottori.tsurisoku.com/fields/" target="_blank" rel="noopener noreferrer">
+          FIELD's~playing nature~
+        </a>
+      </li>
+      <li>
+        <a href="https://kaikyo.cc" target="_blank" rel="noopener noreferrer">
+          海 峡
+        </a>
+      </li>
+      <li>
+        <a href="https://rurimaru.com" target="_blank" rel="noopener noreferrer">
+          る り 丸
+        </a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/@ohanabou" target="_blank" rel="noopener noreferrer">
+          お 花 坊 の 釣 り 日 誌
+        </a>
+      </li>
+    </ul>
   </section>
 
   <footer>

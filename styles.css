@@ -8,7 +8,7 @@
 body {
   font-family: 'Noto Sans JP', sans-serif;
   line-height: 1.6;
-  background-color: #f0f0f0;
+  background-color: white;
   color: #333;
 }
 
@@ -16,7 +16,6 @@ body {
 header,
 footer {
   background-color: #3d6df3;
-  /* 青色 */
   color: white;
   text-align: center;
   padding: 15px 20px;
@@ -27,13 +26,11 @@ header {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  text-align: left;
 }
 
 /* ロゴ */
 header .logo {
   display: flex;
-
 }
 
 header .logo #icon {
@@ -42,13 +39,13 @@ header .logo #icon {
 }
 
 header .logo h1 {
-  font-size: 18px;
+  font-size: 16px;
   text-align: left;
 }
 
-
 /* 画像のレスポンシブ対応 */
-section img {
+section img,
+.slideshow-container img {
   max-width: 100%;
   height: auto;
   display: block;
@@ -58,7 +55,6 @@ section img {
 
 section#captain img {
   max-width: 40%;
-  height: auto;
   border-radius: 50%;
 }
 
@@ -67,7 +63,6 @@ section#captain img {
   position: relative;
   width: 100%;
   padding-top: 56.25%;
-  /* 16:9 のアスペクト比を維持 */
   overflow: hidden;
 }
 
@@ -114,7 +109,6 @@ section#captain img {
   top: 32px;
 }
 
-/* メニューオープン時 */
 .hamburger.active .hamburger__line:nth-of-type(1) {
   transform: translateY(9px) rotate(-45deg);
 }
@@ -210,7 +204,11 @@ section p {
   margin-top: 10px;
 }
 
-/* 料金表 */
+section#pricing p {
+  font-size: 14px;
+}
+
+/* 料金表 & テーブル */
 #pricing ul {
   list-style-type: none;
   font-size: 16px;
@@ -220,9 +218,8 @@ section p {
   margin: 10px 0;
 }
 
-/* テーブル */
 table {
-  width: 80%;
+  width: 95%;
   margin: 20px auto;
   border-collapse: collapse;
 }
@@ -236,78 +233,6 @@ table td {
 
 table th {
   background-color: #f1f1f1;
-}
-
-/* スライドショー */
-.slideshow-container {
-  position: relative;
-  max-width: 100%;
-  margin: auto;
-  overflow: hidden;
-}
-
-.slideshow-container img {
-  max-width: 600px;
-  height: auto;
-}
-
-.slides {
-  width: 100%;
-  display: none;
-}
-
-.active {
-  display: block;
-}
-
-/* スライドボタン */
-.prev,
-.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-/* ソーシャルリンク */
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.social-icon {
-  font-size: 24px;
-  color: #333;
-  padding: 10px;
-  background-color: #fff;
-  border: 2px solid #ddd;
-  border-radius: 50%;
-  text-decoration: none;
-}
-
-.social-icon:hover {
-  background-color: #34495e;
-  color: white;
-}
-
-/* フッター */
-footer {
-  padding: 20px;
-  font-size: 14px;
 }
 
 /* レスポンシブデザイン */
