@@ -26,26 +26,40 @@ footer {
 header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
+  text-align: left;
 }
 
 /* ロゴ */
 header .logo {
   display: flex;
+
+}
+
+header .logo #icon {
+  width: 60px;
+  height: 60px;
 }
 
 header .logo h1 {
-  font-size: 24px;
+  font-size: 18px;
+  text-align: left;
 }
 
+
 /* 画像のレスポンシブ対応 */
-img {
+section img {
   max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
   border-radius: 10px;
+}
+
+section#captain img {
+  max-width: 40%;
+  height: auto;
+  border-radius: 50%;
 }
 
 /* iframe をレスポンシブ対応 */
@@ -153,7 +167,7 @@ img {
   background: url(./images/ship/boat.jpg) no-repeat center center/cover;
   color: white;
   text-align: center;
-  padding: 100px 20px;
+  padding: 160px 10px;
 }
 
 #hero h2 {
@@ -182,12 +196,13 @@ img {
 /* 各セクション */
 section {
   padding: 50px 20px;
-  text-align: center;
+  text-align: left;
 }
 
 section h2 {
   font-size: 28px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 section p {
@@ -229,6 +244,11 @@ table th {
   max-width: 100%;
   margin: auto;
   overflow: hidden;
+}
+
+.slideshow-container img {
+  max-width: 600px;
+  height: auto;
 }
 
 .slides {

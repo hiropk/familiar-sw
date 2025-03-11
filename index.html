@@ -64,8 +64,8 @@
 <body>
   <header>
     <div class="logo">
-      <img src="./images/famipaka.jpg" width="50" height="50">
-      <h1>島根県1352 遊漁船ファミリア</h1>
+      <img src="./images/famipaka.jpg" id="icon">
+      <h1>島根県1352<br> 遊漁船ファミリア</h1>
     </div>
 
     <button class="hamburger" aria-label="メニュー" aria-controls="nav-menu" aria-expanded="false">
@@ -89,43 +89,176 @@
   </header>
 
   <section id="hero">
-    <div class="hero-content">
-      <h2>自然とともに最高の釣り体験を！</h2>
-      <p>澄み切った海と豊かな自然の中で、心に残る釣りを体験しましょう。</p>
-      <a href="#schedule" class="cta-btn">出船スケジュールを見る</a>
-    </div>
+    <div class="hero-content"></div>
   </section>
 
   <section id="greeting">
-    <h2>挨拶</h2>
-    <p>島根県1352 遊漁船ファミリアへようこそ！</p>
+    <img src="./images/background/familiar_string.jpg">
+    <p>ホームページへようこそ！<br>元学校の先生が優しく楽しく釣り場をご案内します！<br>ぜひ、釣行をサポートさせてください！お問合せお待ちしております。</p>
+    <img src="./images/fish.jpg">
   </section>
 
   <section id="pricing">
-    <h2>料金</h2>
-    <p>各プランの料金はこちらです。</p>
+    <h2>メニューおよび料金</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>出船形式(定員)</th>
+          <th>説明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td>乗合<br>（６）</td>
+          <td>お客様どうし互いに乗り合わせて出船します。</td>
+        </tr>
+        <tr>
+          <td>チャーター<br>（７）</td>
+          <td>船を貸切で出船します。</td>
+        </tr>
+        <tr class="highlight">
+          <td>ファミリー<br>チャーター<br>（７）</td>
+          <td>ご家族で船を貸切で出船します。</td>
+        </tr>
+        <tr>
+          <td>レディース<br>チャーター<br>（７）</td>
+          <td>女性のお仲間内で船を貸し切って出船します。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table>
+      <thead>
+        <tr>
+          <th>メニュー名</th>
+          <th>対応時期</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SLJ&LJ</td>
+          <td>通年</td>
+        </tr>
+        <tr>
+          <td>スーパーライトジギング</td>
+          <td>通年</td>
+        </tr>
+        <tr>
+          <td>ライトジギング</td>
+          <td>通年</td>
+        </tr>
+        <tr>
+          <td>ネギング</td>
+          <td>通年</td>
+        </tr>
+        <tr>
+          <td>タイラバ</td>
+          <td>通年</td>
+        </tr>
+        <tr>
+          <td>ボートロック</td>
+          <td>6〜9月</td>
+        </tr>
+        <tr>
+          <td>白イカ</td>
+          <td>6〜9月</td>
+        </tr>
+        <tr>
+          <td>アジング</td>
+          <td>4〜5月</td>
+        </tr>
+        <tr>
+          <td>ティップラン</td>
+          <td>9〜11月</td>
+        </tr>
+        <tr>
+          <td>調査便</td>
+          <td>不定期</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table>
+      <thead>
+        <tr>
+          <th>料金プラン</th>
+          <th>料金</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td>乗合<br> (ジギング、ネギング、ボートロック、ティップラン)</td>
+          <td>¥13,000/お一人様</td>
+        </tr>
+        <tr>
+          <td>乗合 <br>(白イカ, アジ)</td>
+          <td>¥11,000/お一人様</td>
+        </tr>
+        <tr class="highlight">
+          <td>チャーター</td>
+          <td>¥66,000（7人目ご乗船の場合は +¥11,000）</td>
+        </tr>
+        <tr>
+          <td>ファミリー<br>チャーター</td>
+          <td>¥60,000（7人目ご乗船の場合は +¥10,000）</td>
+        </tr>
+        <tr class="highlight">
+          <td>レディース<br>チャーター</td>
+          <td>¥60,000（7人目ご乗船の場合は +¥10,000）</td>
+        </tr>
+        <tr class="highlight">
+          <td>調査便</td>
+          <td>¥6,000/お一人様</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>※白イカ、アジングでのチャーターは上記金額から¥4,000お値引します。</p>
+    <p>※現金でのお支払いとなります。</p>
+
   </section>
 
   <section id="boat">
     <h2>船の紹介</h2>
-    <p>設備の整った快適な船です。</p>
-    <img src="./images/ship/boat.jpg" width="50" height="50">
+    <p>26ft</p>
+    <p>釣り定員6名(チャーターは7名)</p>
+    <p>水洗マリントイレ</p>
+    <img src="./images/ship/boat.jpg">
   </section>
 
   <section id="captain">
     <h2>船長の紹介</h2>
-    <p>経験豊富な船長がご案内します。</p>
+    <img src="./images/my_icon.jpg">
+    <p style="text-align: center;">加納　寛之</p>
+    <p>
+      幼い頃から釣りを始め、大学生の時にオフショアフィッシングと出会いました。以降、遊漁船の乗組員をしながらオフショアフィッシングに没頭。大学を卒業してからは学校の先生として働くなかで、もう一度釣りと向き合いたいと思い退職。現在に至ります。未熟な若造ですが、みなさんとの素敵な思い出づくりのために全力でサポートします！！
+    </p>
   </section>
 
   <section id="boarding">
     <h2>乗船案内</h2>
-    <p>乗船に関する情報をお知らせします。</p>
+    <p>島根県松江市鹿島町佐陀本郷１３７１−１<br>鹿島マリーナ</p>
     <div class="iframe-container">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.332206434972!2d132.9886045760353!3d35.52078737263946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35570f176e890f03%3A0x6d3868fb40fb458c!2z6bm_5bO244Oe44Oq44O844OK77yI5qCq77yJ!5e0!3m2!1sja!2sjp!4v1703740218129!5m2!1sja!2sjp"
         frameborder="0" allowfullscreen>
       </iframe>
     </div>
+    <br>
+    <h3>乗船手順</h3>
+    <ul>
+      <li>赤矢印に沿って、鹿島マリーナゲート入場後、<strong>①もしくは②の駐車場</strong>にお車をお止めください。</li>
+      <li>サービス桟橋（<strong>赤の部分</strong>）に荷物を下ろし、その後お車をマリーナ外部の<strong>③〜⑤の駐車場</strong>に移動してください。</li>
+      <li>お忘れ物やトイレを済ませたら、サービス桟橋で待機してください。</li>
+      <li>集合時間になったら、サービス桟橋（<strong>赤の部分</strong>）に船を付けます。</li>
+      <li>人数や釣り座を決めた後、お荷物を積み込みます。積み込みは船長の指示に従ってください。</li>
+    </ul>
+    <br>
+    <h3>諸注意</h3>
+    <ul>
+      <li><strong>黄色で示された駐車場</strong>はマリーナ契約者専用となっているため、利用はお控えください。</li>
+      <li>魚釣りの場合、船に常設されている共用クーラーを使用します。飲食用のクーラーを除き、お客様ご自身のクーラーの積み込みはご遠慮ください。</li>
+    </ul>
+    <br>
     <img src="./images/jousenn.jpg">
   </section>
 
@@ -138,9 +271,14 @@
     <h2>安全情報</h2>
     <div class="slideshow-container">
       <button id="prevBtn" class="prev">&#10094;</button>
-      <img class="slides active" src="./images/safety_info/safety1.jpg" alt="ライフジャケット着用">
-      <img class="slides" src="./images/safety_info/safety2.jpg" alt="悪天候時の対策">
-      <img class="slides" src="./images/safety_info/safety3.jpg" alt="船上での安全ルール">
+      <img class="slides active" src="./images/safety_info/tourokuhyou_20241101.png" alt="遊漁船業者登録票">
+      <img class="slides" src="./images/safety_info/hyou4.jpg" alt="業務規定別表4">
+      <img class="slides" src="./images/safety_info/hyou6.jpg" alt="業務規定別表6">
+      <img class="slides" src="./images/safety_info/hyou7.jpg" alt="業務規定別表7">
+      <img class="slides" src="./images/safety_info/hyou8.jpg" alt="業務規定別表8">
+      <img class="slides" src="./images/safety_info/hyou10.jpg" alt="業務規定別表10">
+      <img class="slides" src="./images/safety_info/hyou11.jpg" alt="業務規定別表11">
+      <img class="slides" src="./images/safety_info/hyou12_20241101.jpg" alt="業務規定別表12">
       <button id="nextBtn" class="next">&#10095;</button>
     </div>
   </section>
