@@ -8,20 +8,6 @@
   <link rel="icon" href="./images/favicon.ico" sizes="32x32">
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background-color: #ffffff;
-    }
-
-    header,
-    footer {
-      background-color: #2196F3;
-      padding: 10px 0;
-      text-align: center;
-      color: white;
-      position: relative;
-    }
-  </style>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const hamburger = document.querySelector('.hamburger');
@@ -46,6 +32,31 @@
           nav.setAttribute('aria-hidden', true);
         }
       });
+
+      const slides = document.querySelectorAll(".slides");
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle("active", i === index);
+        });
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+      }
+
+      document.getElementById("nextBtn").addEventListener("click", nextSlide);
+      document.getElementById("prevBtn").addEventListener("click", prevSlide);
+
+      // 初回表示
+      showSlide(currentIndex);
     });
   </script>
 </head>
@@ -109,9 +120,12 @@
   <section id="boarding">
     <h2>乗船案内</h2>
     <p>乗船に関する情報をお知らせします。</p>
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.332206434972!2d132.9886045760353!3d35.52078737263946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35570f176e890f03%3A0x6d3868fb40fb458c!2z6bm_5bO244Oe44Oq44O844OK77yI5qCq77yJ!5e0!3m2!1sja!2sjp!4v1703740218129!5m2!1sja!2sjp"
-      width="600" height="450" style="border:0;" frameborder="0"></iframe>
+    <div class="iframe-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.332206434972!2d132.9886045760353!3d35.52078737263946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35570f176e890f03%3A0x6d3868fb40fb458c!2z6bm_5bO244Oe44Oq44O844OK77yI5qCq77yJ!5e0!3m2!1sja!2sjp!4v1703740218129!5m2!1sja!2sjp"
+        frameborder="0" allowfullscreen>
+      </iframe>
+    </div>
     <img src="./images/jousenn.jpg">
   </section>
 
@@ -124,9 +138,9 @@
     <h2>安全情報</h2>
     <div class="slideshow-container">
       <button id="prevBtn" class="prev">&#10094;</button>
-      <img class="slides" src="safety1.jpg" alt="ライフジャケット着用">
-      <img class="slides" src="safety2.jpg" alt="悪天候時の対策">
-      <img class="slides" src="safety3.jpg" alt="船上での安全ルール">
+      <img class="slides active" src="./images/safety_info/safety1.jpg" alt="ライフジャケット着用">
+      <img class="slides" src="./images/safety_info/safety2.jpg" alt="悪天候時の対策">
+      <img class="slides" src="./images/safety_info/safety3.jpg" alt="船上での安全ルール">
       <button id="nextBtn" class="next">&#10095;</button>
     </div>
   </section>
@@ -138,9 +152,12 @@
 
   <section>
     <h2>天気</h2>
-    <iframe width="380" height="350"
-      src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=default&metricTemp=°C&metricWind=m/s&zoom=9&overlay=wind&product=ecmwf&level=surface&lat=35.872&lon=133.096&message=true"
-      frameborder="0"></iframe>
+    <div class="iframe-container">
+      <iframe
+        src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=default&metricTemp=°C&metricWind=m/s&zoom=9&overlay=wind&product=ecmwf&level=surface&lat=35.872&lon=133.096&message=true"
+        frameborder="0" allowfullscreen>
+      </iframe>
+    </div>
   </section>
 
   <footer>
