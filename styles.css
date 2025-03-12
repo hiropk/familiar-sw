@@ -53,11 +53,10 @@ img#title {
   height: 50px;
 }
 
-.insta,
-.line {
+.insta {
   position: fixed;
   top: 27px;
-  right: 70px;
+  right: 60px;
   z-index: 100;
   width: 48px;
   height: 48px;
@@ -69,7 +68,7 @@ img#title {
 .line {
   position: fixed;
   top: 27px;
-  right: 110px;
+  right: 100px;
   z-index: 100;
   width: 48px;
   height: 48px;
@@ -292,7 +291,8 @@ section p {
   text-align: center;
 }
 
-section#pricing p {
+section#pricing p,
+section#schedule p {
   font-size: 14px;
 }
 
