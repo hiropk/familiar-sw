@@ -43,9 +43,61 @@ header .logo h1 {
   text-align: left;
 }
 
+/* スライドショー */
+.slideshow-container {
+  position: relative;
+  max-width: 600px;
+  /* スライドの最大幅 */
+  margin: auto;
+  overflow: hidden;
+}
+
+.slides {
+  display: none;
+  width: 100%;
+}
+
+.slides.active {
+  display: block;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* 半透明の背景 */
+  color: white;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 10px;
+  /* 左端に配置 */
+}
+
+.next {
+  right: 10px;
+  /* 右端に配置 */
+}
+
 /* 画像のレスポンシブ対応 */
-section img,
-.slideshow-container img {
+section img {
   max-width: 100%;
   height: auto;
   display: block;
@@ -62,16 +114,15 @@ section#captain img {
 .iframe-container {
   position: relative;
   width: 100%;
-  padding-top: 56.25%;
   overflow: hidden;
 }
 
 .iframe-container iframe {
-  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  width: 800px;
+  height: 600px;
   border: none;
 }
 
