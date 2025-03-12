@@ -12,6 +12,11 @@ body {
   color: #333;
 }
 
+ol,
+ul {
+  padding-left: 20px;
+}
+
 /* ヘッダー & フッター */
 header,
 footer {
@@ -41,6 +46,36 @@ header .logo #icon {
 header .logo h1 {
   font-size: 16px;
   text-align: left;
+}
+
+img#title {
+  width: 600px;
+  height: 50px;
+}
+
+.insta,
+.line {
+  position: fixed;
+  top: 27px;
+  right: 70px;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.line {
+  position: fixed;
+  top: 27px;
+  right: 110px;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
 /* スライドショー */
@@ -254,6 +289,7 @@ section h2 {
 section p {
   font-size: 18px;
   margin-top: 10px;
+  text-align: center;
 }
 
 section#pricing p {
