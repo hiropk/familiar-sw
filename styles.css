@@ -115,6 +115,7 @@ section#captain img {
   position: relative;
   width: 100%;
   overflow: hidden;
+  text-align: center;
 }
 
 .iframe-container iframe {
