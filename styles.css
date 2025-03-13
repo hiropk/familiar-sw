@@ -50,7 +50,7 @@ header .logo h1 {
 
 img#title {
   width: 600px;
-  height: 50px;
+  height: auto;
 }
 
 .insta {
