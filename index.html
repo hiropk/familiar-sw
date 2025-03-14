@@ -8,8 +8,17 @@
   <link rel="icon" href="./images/favicon.ico" sizes="32x32">
   <link rel="apple-touch-icon" sizes="180x180" href=".images/famipaka.jpg">
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <link href=”https://use.fontawesome.com/releases/v6.0.0/css/all.css” rel=”stylesheet”>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
+  <style>
+    .kiwi-maru-regular {
+      font-family: "Kiwi Maru", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+  </style>
   <script src="https://kit.fontawesome.com/e172613f19.js" crossorigin="anonymous"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -78,7 +87,7 @@
   </script>
 </head>
 
-<body>
+<body class="kiwi-maru-regular">
   <header id="top">
     <div class="logo">
       <img src="./images/famipaka.jpg" id="icon">
@@ -220,10 +229,10 @@
     <h3>乗船手順</h3>
     <ol>
       <li>マリーナ内の①②にお車を止めてください</li>
-      <li><span style="color: red;">桟橋</span>に荷物を下ろし、お車を③④⑤にご移動ください</li>
-      <li>トイレを済ませて<span style="color: red;">桟橋</span>でお待ちください</li>
+      <li>赤で示す<span style="color: red;">サービス桟橋</span>に荷物を下ろし、お車を③④⑤にご移動ください</li>
+      <li>トイレを済ませて<span style="color: red;">サービス桟橋</span>でお待ちください</li>
       <li>乗船名簿へ必要事項をご入力ください</li>
-      <li>集合時間を目安に<span style="color: red;">桟橋</span>に船を付けます</li>
+      <li>集合時間を目安に<span style="color: red;">サービス桟橋</span>に船を付けます</li>
       <li>釣り座を決めて荷物を積み込み出船します</li>
     </ol>
     <br>
@@ -248,7 +257,10 @@
   <section id="safety">
     <h2>安全情報</h2>
     <div class="slideshow-container">
-      <button id="prevBtn" class="prev">&#10094;</button>
+      <svg id="prevBtn" class="prev" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+        width="24px" fill="white">
+        <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
+      </svg>
       <img class="slides active" src="./images/safety_info/hyou4.jpg" alt="業務規定別表4">
       <img class="slides" src="./images/safety_info/hyou6.jpg" alt="業務規定別表6">
       <img class="slides" src="./images/safety_info/hyou7.jpg" alt="業務規定別表7">
@@ -257,7 +269,10 @@
       <img class="slides" src="./images/safety_info/hyou11.jpg" alt="業務規定別表11">
       <img class="slides" src="./images/safety_info/hyou12_20241101.jpg" alt="業務規定別表12">
       <img class="slides" src="./images/safety_info/tourokuhyou_20241101.png" alt="遊漁船業者登録票">
-      <button id="nextBtn" class="next">&#10095;</button>
+      <svg id="nextBtn" class="next" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+        width="24px" fill="white">
+        <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+      </svg>
     </div>
   </section>
 
