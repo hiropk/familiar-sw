@@ -153,13 +153,7 @@ section#pricing img[alt="ご案内プラン"] {
   display: block;
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  border: 3px solid #3d6df3;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-section#pricing img[alt="ご案内プラン"]:hover {
-  transform: scale(1.02);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  border: 1px solid #3d6df3;
 }
 
 /* iframe をレスポンシブ対応 */
