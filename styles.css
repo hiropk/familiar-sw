@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   line-height: 1.6;
   background-color: white;
   color: #333;
@@ -144,6 +144,24 @@ section#captain img {
   border-radius: 50%;
 }
 
+/* 料金表画像のスタイル */
+section#pricing img[alt="ご案内プラン"] {
+  max-width: 100%;
+  width: 800px;
+  height: auto;
+  margin: 30px auto;
+  display: block;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border: 3px solid #3d6df3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section#pricing img[alt="ご案内プラン"]:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
 /* iframe をレスポンシブ対応 */
 .iframe-container {
   position: relative;
@@ -180,7 +198,7 @@ section#captain img {
   width: 26px;
   height: 2px;
   background-color: #333;
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
 .hamburger__line:nth-of-type(1) {
@@ -215,9 +233,9 @@ section#captain img {
   width: 300px;
   height: 100vh;
   background-color: #fff;
-  box-shadow: 2px 0 4px rgba(0, 0, 0, .1);
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
   transform: translateX(-100%);
-  transition: transform .4s;
+  transition: transform 0.4s;
   z-index: 90;
 }
 
@@ -323,7 +341,6 @@ table th {
   background-color: #f1f1f1;
 }
 
-
 .button {
   background-color: #007bff;
   color: white;
@@ -350,5 +367,14 @@ table th {
   .cta-btn {
     font-size: 16px;
     padding: 12px 25px;
+  }
+
+  /* モバイルでの料金表画像 */
+  section#pricing img[alt="ご案内プラン"] {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
 }
