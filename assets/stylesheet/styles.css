@@ -256,7 +256,7 @@ section#pricing img[alt="ご案内プラン"] {
 
 /* ヒーローセクション */
 #hero {
-  background: url(./images/ship/boat.jpg) no-repeat center center/cover;
+  background: url(../../images/ship/boat.jpg) no-repeat center center/cover;
   color: white;
   text-align: center;
   padding: 160px 10px;

@@ -10,7 +10,7 @@
     <title>SLJ・LJの山陰遊漁船ファミリア</title>
     <link rel="apple-touch-icon" href="./images/famipaka.jpg" />
     <link rel="apple-touch-icon" sizes="180x180" href=".images/famipaka.jpg" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./assets/stylesheet/styles.css" />
     <link href=”https://use.fontawesome.com/releases/v6.0.0/css/all.css”
     rel=”stylesheet”>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,73 +30,7 @@
       src="https://kit.fontawesome.com/e172613f19.js"
       crossorigin="anonymous"
     ></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const hamburger = document.querySelector(".hamburger");
-        const nav = document.querySelector(".nav");
-
-        hamburger.addEventListener("click", () => {
-          hamburger.classList.toggle("active");
-          nav.classList.toggle("active");
-
-          // アクセシビリティ対応
-          const isOpen = hamburger.classList.contains("active");
-          hamburger.setAttribute("aria-expanded", isOpen);
-          nav.setAttribute("aria-hidden", !isOpen);
-        });
-
-        function closeDisplayMenu() {
-          hamburger.classList.remove("active");
-          nav.classList.remove("active");
-          hamburger.setAttribute("aria-expanded", false);
-          nav.setAttribute("aria-hidden", true);
-        }
-
-        // メニューの外側をクリックした時の処理
-        document.addEventListener("click", (e) => {
-          if (
-            !e.target.closest(".nav") &&
-            !e.target.closest(".hamburger") &&
-            nav.classList.contains("active")
-          ) {
-            closeDisplayMenu();
-          }
-        });
-
-        // 表示されたメニューの項目をクリックした時の処理
-        const display_menu = document.querySelector(".nav__list");
-        display_menu.addEventListener("click", () => {
-          if (display_menu.closest("#nav-menu").classList.contains("active")) {
-            closeDisplayMenu();
-          }
-        });
-
-        const slides = document.querySelectorAll(".slides");
-        let currentIndex = 0;
-
-        function showSlide(index) {
-          slides.forEach((slide, i) => {
-            slide.classList.toggle("active", i === index);
-          });
-        }
-
-        function nextSlide() {
-          currentIndex = (currentIndex + 1) % slides.length;
-          showSlide(currentIndex);
-        }
-
-        function prevSlide() {
-          currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-          showSlide(currentIndex);
-        }
-
-        document.getElementById("nextBtn").addEventListener("click", nextSlide);
-        document.getElementById("prevBtn").addEventListener("click", prevSlide);
-
-        // 初回表示
-        showSlide(currentIndex);
-      });
-    </script>
+    <script src="./assets/javascript/main.js"></script>
   </head>
 
   <body class="kiwi-maru-regular">
