@@ -472,6 +472,137 @@ table th {
   text-decoration: underline;
 }
 
+/* コンテンツページ（ジギング・白イカ・FAQ等） */
+.content-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.content-page h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.content-lead {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.content-page h2 {
+  font-size: 22px;
+  margin: 30px 0 15px;
+  color: #333;
+}
+
+.content-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+.content-page th,
+.content-page td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.content-page th {
+  background-color: #3d6df3;
+  color: white;
+}
+
+.content-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+.content-related {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.content-related ul {
+  list-style: none;
+  padding: 0;
+}
+
+.content-related li {
+  margin: 10px 0;
+}
+
+.content-related a {
+  color: #3d6df3;
+  text-decoration: none;
+}
+
+.content-related a:hover {
+  text-decoration: underline;
+}
+
+.faq-item {
+  margin-bottom: 28px;
+}
+
+.faq-item h2 {
+  font-size: 20px;
+  color: #3d6df3;
+}
+
+/* トップ：釣り種別リンク */
+#about,
+#guides {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+#about p,
+#guides p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.guide-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guide-links li {
+  margin: 12px 0;
+  padding: 14px 16px;
+  border: 1px solid #e0e7ff;
+  border-radius: 8px;
+  background: #f8faff;
+}
+
+.guide-links a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+}
+
+.guide-links a:hover {
+  color: #3d6df3;
+}
+
+header .logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
 /* レスポンシブデザイン */
 @media screen and (max-width: 768px) {
   header {
