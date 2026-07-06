@@ -24,6 +24,10 @@ async function loadCommon() {
         const html = await response.text();
         headerElement.innerHTML = html;
 
+        if (isSubPage(pathname)) {
+          document.body.classList.add("page-sub");
+        }
+
         // ヘッダー読み込み後にmain.jsの初期化を実行
         setTimeout(() => {
           initializeMain();

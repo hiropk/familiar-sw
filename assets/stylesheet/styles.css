@@ -78,6 +78,21 @@ img#title {
   cursor: pointer;
 }
 
+/* サブページでは固定アイコンをやめ、本文と重ならないようにする */
+body.page-sub .insta,
+body.page-sub .line {
+  position: static;
+  width: auto;
+  height: auto;
+  z-index: auto;
+}
+
+body.page-sub header .logo {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+}
+
 /* スライドショー */
 .slideshow-container {
   position: relative;
@@ -507,7 +522,68 @@ header .logo .site-title-link:hover .site-title {
 .content-page {
   max-width: 800px;
   margin: 0 auto;
-  padding: 50px 20px;
+  padding: 32px 20px 40px;
+  text-align: left;
+}
+
+.content-page--compact {
+  padding: 20px 20px 28px;
+}
+
+.content-page--compact h1 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.content-page--compact .back-to-home {
+  margin-bottom: 10px;
+}
+
+.content-page--compact .faq-item {
+  margin-bottom: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.content-page--compact .faq-item:last-of-type {
+  border-bottom: none;
+}
+
+.content-page--compact .faq-item h2 {
+  font-size: 17px;
+  margin: 0 0 4px;
+  line-height: 1.4;
+}
+
+.content-page--compact .faq-item p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.content-page--compact .content-related {
+  margin-top: 20px;
+  padding-top: 12px;
+}
+
+.content-page--compact .content-related h2 {
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+.content-page--compact .content-related li {
+  margin: 6px 0;
+}
+
+.content-page--compact .back-to-home--bottom {
+  margin-top: 20px;
+  padding-top: 12px;
+}
+
+.content-page .button {
+  display: inline-block;
+  margin-top: 8px;
+  max-width: 100%;
 }
 
 .content-page h1 {
@@ -580,12 +656,17 @@ header .logo .site-title-link:hover .site-title {
 }
 
 .faq-item {
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
 
 .faq-item h2 {
   font-size: 20px;
   color: #3d6df3;
+  margin: 0 0 6px;
+}
+
+.faq-item p {
+  margin: 0;
 }
 
 footer .footer-sub {
