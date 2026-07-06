@@ -1,18 +1,32 @@
 // 共通部分を読み込む関数
+const SUB_PAGES = ["jigging.html", "shiroika.html", "access.html", "faq.html"];
+
+function isSubPage(pathname) {
+  return SUB_PAGES.some((name) => pathname.endsWith("/" + name) || pathname.endsWith(name));
+}
+
 async function loadCommon() {
   // ヘッダーの読み込み
   const headerElement = document.querySelector("header");
   if (headerElement) {
-    const isNewsPage = window.location.pathname.includes("/news/");
-    const headerPath = isNewsPage
-      ? "../../common/header-news.html"
-      : "./common/header.html";
+    const pathname = window.location.pathname;
+    const isNewsPage = pathname.includes("/news/");
+    let headerPath = "./common/header.html";
+    if (isNewsPage) {
+      headerPath = "../../common/header-news.html";
+    } else if (isSubPage(pathname)) {
+      headerPath = "./common/header-sub.html";
+    }
 
     try {
       const response = await fetch(headerPath);
       if (response.ok) {
         const html = await response.text();
         headerElement.innerHTML = html;
+
+        if (isSubPage(pathname)) {
+          document.body.classList.add("page-sub");
+        }
 
         // ヘッダー読み込み後にmain.jsの初期化を実行
         setTimeout(() => {

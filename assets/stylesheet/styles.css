@@ -43,9 +43,10 @@ header .logo #icon {
   height: 60px;
 }
 
-header .logo h1 {
+header .logo .site-title {
   font-size: 16px;
   text-align: left;
+  margin: 0;
 }
 
 img#title {
@@ -75,6 +76,21 @@ img#title {
   border: none;
   background: transparent;
   cursor: pointer;
+}
+
+/* サブページでは固定アイコンをやめ、本文と重ならないようにする */
+body.page-sub .insta,
+body.page-sub .line {
+  position: static;
+  width: auto;
+  height: auto;
+  z-index: auto;
+}
+
+body.page-sub header .logo {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
 }
 
 /* スライドショー */
@@ -260,6 +276,21 @@ section#pricing img[alt="ご案内プラン"] {
   color: white;
   text-align: center;
   padding: 160px 10px;
+}
+
+#hero h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+#hero .hero-lead {
+  font-size: 18px;
+  margin-bottom: 30px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 #hero h2 {
@@ -456,11 +487,223 @@ table th {
   text-decoration: underline;
 }
 
+.back-to-home {
+  margin-bottom: 24px;
+}
+
+.back-to-home--bottom {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.back-to-home__link {
+  display: inline-block;
+  color: #3d6df3;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.back-to-home__link:hover {
+  text-decoration: underline;
+}
+
+header .logo .site-title-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+header .logo .site-title-link:hover .site-title {
+  opacity: 0.85;
+}
+
+/* コンテンツページ（ジギング・白イカ・FAQ等） */
+.content-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 20px 40px;
+  text-align: left;
+}
+
+.content-page--compact {
+  padding: 20px 20px 28px;
+}
+
+.content-page--compact h1 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.content-page--compact .back-to-home {
+  margin-bottom: 10px;
+}
+
+.content-page--compact .faq-item {
+  margin-bottom: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.content-page--compact .faq-item:last-of-type {
+  border-bottom: none;
+}
+
+.content-page--compact .faq-item h2 {
+  font-size: 17px;
+  margin: 0 0 4px;
+  line-height: 1.4;
+}
+
+.content-page--compact .faq-item p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.content-page--compact .content-related {
+  margin-top: 20px;
+  padding-top: 12px;
+}
+
+.content-page--compact .content-related h2 {
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+.content-page--compact .content-related li {
+  margin: 6px 0;
+}
+
+.content-page--compact .back-to-home--bottom {
+  margin-top: 20px;
+  padding-top: 12px;
+}
+
+.content-page .button {
+  display: inline-block;
+  margin-top: 8px;
+  max-width: 100%;
+}
+
+.content-page h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.content-lead {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.content-page h2 {
+  font-size: 22px;
+  margin: 30px 0 15px;
+  color: #333;
+}
+
+.content-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+.content-page th,
+.content-page td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.content-page th {
+  background-color: #3d6df3;
+  color: white;
+}
+
+.content-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+.content-related {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.content-related ul {
+  list-style: none;
+  padding: 0;
+}
+
+.content-related li {
+  margin: 10px 0;
+}
+
+.content-related a {
+  color: #3d6df3;
+  text-decoration: none;
+}
+
+.content-related a:hover {
+  text-decoration: underline;
+}
+
+.faq-item {
+  margin-bottom: 16px;
+}
+
+.faq-item h2 {
+  font-size: 20px;
+  color: #3d6df3;
+  margin: 0 0 6px;
+}
+
+.faq-item p {
+  margin: 0;
+}
+
+footer .footer-sub {
+  margin-top: 8px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+footer .footer-sub a {
+  color: white;
+  text-decoration: none;
+}
+
+footer .footer-sub a:hover {
+  text-decoration: underline;
+}
+
+header .logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
 /* レスポンシブデザイン */
 @media screen and (max-width: 768px) {
   header {
     flex-direction: column;
     text-align: center;
+  }
+
+  #hero h1 {
+    font-size: 24px;
+  }
+
+  #hero .hero-lead {
+    font-size: 16px;
+    padding: 0 12px;
   }
 
   .cta-btn {
