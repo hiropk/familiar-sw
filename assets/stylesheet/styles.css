@@ -472,6 +472,37 @@ table th {
   text-decoration: underline;
 }
 
+.back-to-home {
+  margin-bottom: 24px;
+}
+
+.back-to-home--bottom {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.back-to-home__link {
+  display: inline-block;
+  color: #3d6df3;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.back-to-home__link:hover {
+  text-decoration: underline;
+}
+
+header .logo .site-title-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+header .logo .site-title-link:hover .site-title {
+  opacity: 0.85;
+}
+
 /* コンテンツページ（ジギング・白イカ・FAQ等） */
 .content-page {
   max-width: 800px;
