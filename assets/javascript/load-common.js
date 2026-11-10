@@ -3,10 +3,7 @@ async function loadCommon() {
   // ヘッダーの読み込み
   const headerElement = document.querySelector("header");
   if (headerElement) {
-    const isNewsPage = window.location.pathname.includes("/news/");
-    const headerPath = isNewsPage
-      ? "../../common/header-news.html"
-      : "./common/header.html";
+    const headerPath = "./common/header.html";
 
     try {
       const response = await fetch(headerPath);
@@ -27,9 +24,7 @@ async function loadCommon() {
   // フッターの読み込み
   const footerElement = document.querySelector("footer");
   if (footerElement) {
-    const footerPath = window.location.pathname.includes("/news/")
-      ? "../../common/footer.html"
-      : "./common/footer.html";
+    const footerPath = "./common/footer.html";
 
     try {
       const response = await fetch(footerPath);
