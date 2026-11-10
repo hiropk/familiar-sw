@@ -20,6 +20,33 @@ const {
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const siteBase = Astro.site?.href.replace(/\/$/, "") ?? "";
+
+// 構造化データ（LocalBusiness）: 公開している出船場所=鹿島マリーナを掲載
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "山陰遊漁船ファミリア",
+  description:
+    "島根県松江市・鹿島マリーナ発着の遊漁船。SLJ・LJ・タイラバ・白イカ（ケンサキイカ）などの釣りを元学校の先生の船長がご案内します。",
+  image: `${siteBase}/images/famipaka.jpg`,
+  url: siteBase || canonical,
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "JP",
+    addressRegion: "島根県",
+    addressLocality: "松江市",
+    streetAddress: "鹿島町佐陀本郷1371-1 鹿島マリーナ",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 35.872,
+    longitude: 133.096,
+  },
+  areaServed: "山陰・島根県",
+  priceRange: "¥¥",
+  sameAs: ["https://www.instagram.com/familiar_matsue/"],
+};
 ---
 
 <!doctype html>
@@ -41,6 +68,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
     <meta name="twitter:card" content="summary_large_image" />
+
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(jsonLd)}
+    />
 
     <link rel="apple-touch-icon" href="/images/famipaka.jpg" />
     <link rel="icon" href="/images/favicon.ico" />
