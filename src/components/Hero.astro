@@ -2,19 +2,15 @@
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
-// ギャラリー写真を読み込み、横長（風景・季節感のある）写真をヒーロー背景に採用
+// ヒーロー専用の家族・季節写真（src/assets/hero）を自動切替で表示
 const modules = import.meta.glob<{ default: ImageMetadata }>(
-  "../assets/gallery/*.{jpg,jpeg,JPG,JPEG,png,PNG}",
+  "../assets/hero/*.{jpg,jpeg,JPG,JPEG,png,PNG}",
   { eager: true }
 );
 
-const all = Object.entries(modules)
+const picked = Object.entries(modules)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, m]) => m.default);
-
-// 横長を優先し季節写真を中心に。無ければ全体から。最大8枚。
-const landscape = all.filter((img) => img.width >= img.height);
-const picked = (landscape.length >= 5 ? landscape : all).slice(0, 8);
 ---
 
 <section id="hero" class="hero">

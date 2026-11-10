@@ -19,16 +19,16 @@ const fulls = await Promise.all(
   )
 );
 
-const title = "釣果・季節ギャラリー | 山陰遊漁船ファミリア（松江・鹿島マリーナ）";
+const title = "釣果ギャラリー | 山陰遊漁船ファミリア（松江・鹿島マリーナ）";
 const description =
-  "島根県松江市・鹿島マリーナ発着の遊漁船ファミリアの釣果と四季の風景ギャラリー。SLJ・LJ・タイラバ・白イカなどの釣果写真をご覧いただけます。";
+  "島根県松江市・鹿島マリーナ発着の遊漁船ファミリアの釣果ギャラリー。真鯛・青物・根魚・白イカなど、SLJ・LJ・タイラバ・イカメタルの釣果写真をご覧いただけます。";
 ---
 
 <Base title={title} description={description} ogImage="/images/famipaka.jpg">
   <section class="gallery" data-reveal>
-    <h1>ギャラリー</h1>
+    <h1>釣果ギャラリー</h1>
     <p class="gallery__lead">
-      直近2年間の釣果と、山陰の四季を感じる船上の風景をまとめました。
+      直近2年間の釣果写真をまとめました。真鯛・青物・根魚・白イカなど、山陰の豊かな海の恵みをご覧ください。
     </p>
 
     <div class="gallery__grid">
@@ -43,7 +43,7 @@ const description =
           >
             <Image
               src={img}
-              alt={`遊漁船ファミリアの釣果・風景 ${i + 1}`}
+              alt={`遊漁船ファミリアの釣果 ${i + 1}`}
               widths={[300, 600]}
               sizes="(max-width: 600px) 45vw, (max-width: 1024px) 30vw, 260px"
               quality={70}
@@ -218,7 +218,7 @@ const description =
       current = (i + items.length) % items.length;
       const btn = items[current];
       imgEl.src = btn.dataset.full || "";
-      imgEl.alt = `遊漁船ファミリアの釣果・風景 ${current + 1}`;
+      imgEl.alt = `遊漁船ファミリアの釣果 ${current + 1}`;
       counter.textContent = `${current + 1} / ${items.length}`;
     };
     const open = (i: number) => {
