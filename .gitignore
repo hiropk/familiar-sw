@@ -1,6 +1,9 @@
 # Analytics data (keep private, not for public repo)
 data/
 
+# 内部引き継ぎメモ（公開リポジトリには載せない）
+HANDOFF.md
+
 # Node / Astro
 node_modules/
 dist/
