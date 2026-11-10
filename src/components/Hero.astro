@@ -1,0 +1,76 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+// ギャラリー写真を読み込み、横長（風景・季節感のある）写真をヒーロー背景に採用
+const modules = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/gallery/*.{jpg,jpeg,JPG,JPEG,png,PNG}",
+  { eager: true }
+);
+
+const all = Object.entries(modules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, m]) => m.default);
+
+// 横長を優先し季節写真を中心に。無ければ全体から。最大8枚。
+const landscape = all.filter((img) => img.width >= img.height);
+const picked = (landscape.length >= 5 ? landscape : all).slice(0, 8);
+---
+
+<section id="hero" class="hero">
+  <div class="hero__slideshow" aria-hidden="true">
+    {
+      picked.map((img, i) => (
+        <div class:list={["hero__slide", { "is-active": i === 0 }]}>
+          <Image
+            src={img}
+            alt=""
+            widths={[768, 1280, 1920]}
+            sizes="100vw"
+            quality={72}
+            loading={i === 0 ? "eager" : "lazy"}
+            fetchpriority={i === 0 ? "high" : "auto"}
+          />
+        </div>
+      ))
+    }
+    <div class="hero__scrim"></div>
+  </div>
+
+  <div class="hero__content">
+    <p class="hero__eyebrow">SLJ / LJ 山陰遊漁船</p>
+    <h1 class="hero__title">遊漁船ファミリア</h1>
+    <p class="hero__sub">島根県松江市・鹿島マリーナ発着</p>
+    <div class="hero__actions">
+      <a class="hero__cta" href="#schedule">出船スケジュールを見る</a>
+      <a
+        class="hero__cta hero__cta--line"
+        href="https://lin.ee/fipwyGn"
+        target="_blank"
+        rel="noopener noreferrer">LINEで予約</a
+      >
+    </div>
+  </div>
+
+  <a class="hero__scroll" href="#greeting" aria-label="下にスクロール">
+    <span></span>
+  </a>
+</section>
+
+<script>
+  // ヒーロースライドショー（クロスフェード＋Ken Burns）
+  const slides = document.querySelectorAll<HTMLElement>(".hero__slide");
+  if (slides.length > 1) {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (!prefersReduced) {
+      let idx = 0;
+      setInterval(() => {
+        slides[idx].classList.remove("is-active");
+        idx = (idx + 1) % slides.length;
+        slides[idx].classList.add("is-active");
+      }, 6000);
+    }
+  }
+</script>

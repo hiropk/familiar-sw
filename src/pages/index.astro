@@ -1,13 +1,12 @@
 ---
 import Base from "../layouts/Base.astro";
+import Hero from "../components/Hero.astro";
 ---
 
-<Base>
-  <section id="hero">
-    <div class="hero-content"></div>
-  </section>
+<Base heroOverlay>
+  <Hero />
 
-  <section id="greeting">
+  <section id="greeting" data-reveal>
     <img src="/images/background/familiar_string.jpg" id="title" alt="遊漁船ファミリア" />
     <p>
       元学校の先生が優しくご案内！<br />ご予約は以下のLINEまでお願いします<br
@@ -27,7 +26,7 @@ import Base from "../layouts/Base.astro";
     </a>
   </section>
 
-  <section id="schedule">
+  <section id="schedule" data-reveal>
     <h2>出船スケジュール</h2>
     <div class="iframe-container">
       <iframe
@@ -44,7 +43,7 @@ import Base from "../layouts/Base.astro";
     <p>※平日釣行は事前にご相談ください。</p>
   </section>
 
-  <section id="pricing">
+  <section id="pricing" data-reveal>
     <h2>ご案内プラン</h2>
     <table>
       <thead>
@@ -85,7 +84,7 @@ import Base from "../layouts/Base.astro";
     <p>※お支払は現金のみ</p>
   </section>
 
-  <section id="boat">
+  <section id="boat" data-reveal>
     <h2>船の紹介</h2>
     <p>ヤマハ26ft（175馬力）</p>
     <p>釣り定員6名（チャーター7名）</p>
@@ -93,7 +92,7 @@ import Base from "../layouts/Base.astro";
     <img src="/images/ship/boat.jpg" alt="遊漁船ファミリアの船" />
   </section>
 
-  <section id="captain">
+  <section id="captain" data-reveal>
     <h2>船長の紹介</h2>
     <img src="/images/my_icon.jpg" alt="船長 加納寛之" />
     <p style="text-align: center">SLJ・LJ山陰遊漁船ファミリア　加納寛之</p>
@@ -103,7 +102,7 @@ import Base from "../layouts/Base.astro";
         height: 0px;
         border-style: solid;
         border-width: 15px;
-        border-color: transparent transparent #3d6df3;
+        border-color: transparent transparent #12506b;
         margin-left: 80px;
         margin-top: -20px;
       "
@@ -111,19 +110,21 @@ import Base from "../layouts/Base.astro";
     </div>
     <div
       style="
-        border-radius: 10px;
-        background: #3d6df3;
+        border-radius: 14px;
+        background: #12506b;
         margin-bottom: 0px;
         font-size: 100%;
-        padding: 20px;
+        padding: 24px;
         color: white;
+        line-height: 1.9;
+        box-shadow: 0 18px 40px -24px rgba(14, 42, 59, 0.55);
       "
     >
       幼い頃から釣りを始め、大学生の時にオフショアフィッシングに出会いました。以降、オフショアフィッシングに没頭。学校の先生として働くなかで、もう一度釣りと向き合いたいと思い退職。未熟な若造ですが、みなさんとの素敵な思い出づくりのために全力でサポートします。
     </div>
   </section>
 
-  <section id="boarding">
+  <section id="boarding" data-reveal>
     <h2>乗船案内</h2>
     <h3>住所</h3>
     <p>島根県松江市鹿島町佐陀本郷１３７１−１<br />鹿島マリーナ</p>
@@ -173,7 +174,7 @@ import Base from "../layouts/Base.astro";
     <br />
   </section>
 
-  <section id="safety">
+  <section id="safety" data-reveal>
     <h2>安全情報</h2>
     <div class="slideshow-container">
       <svg
@@ -258,7 +259,7 @@ import Base from "../layouts/Base.astro";
     </p>
   </section>
 
-  <section id="weather">
+  <section id="weather" data-reveal>
     <h2>天気</h2>
     <div class="iframe-container">
       <iframe
@@ -268,7 +269,7 @@ import Base from "../layouts/Base.astro";
     </div>
   </section>
 
-  <section id="links">
+  <section id="links" data-reveal>
     <h2>リンク</h2>
     <ul>
       <li>
