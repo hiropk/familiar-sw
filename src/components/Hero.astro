@@ -1,16 +1,18 @@
 ---
 import { Image } from "astro:assets";
-import type { ImageMetadata } from "astro";
 
-// ヒーロー専用の家族・季節写真（src/assets/hero）を自動切替で表示
-const modules = import.meta.glob<{ default: ImageMetadata }>(
-  "../assets/hero/*.{jpg,jpeg,JPG,JPEG,png,PNG}",
-  { eager: true }
-);
+// ヒーロー＝釣果のベストショット＋海の風景（人物なしの夕日）を自動切替で表示。
+// 魚写真はギャラリーと共有（同一ファイルを指定）。差し替えたい場合はこの配列を編集。
+import sunset from "../assets/hero/gallery-026.jpg";
+import madai1 from "../assets/gallery/gallery-017.jpg";
+import hiramasa from "../assets/gallery/gallery-091.jpg";
+import madai2 from "../assets/gallery/gallery-028.jpg";
+import buri1 from "../assets/gallery/gallery-050.jpg";
+import kue from "../assets/gallery/gallery-070.jpg";
+import buri2 from "../assets/gallery/gallery-037.jpg";
+import amadai from "../assets/gallery/gallery-018.jpg";
 
-const picked = Object.entries(modules)
-  .sort(([a], [b]) => a.localeCompare(b))
-  .map(([, m]) => m.default);
+const picked = [madai1, hiramasa, sunset, madai2, buri1, kue, buri2, amadai];
 ---
 
 <section id="hero" class="hero">
