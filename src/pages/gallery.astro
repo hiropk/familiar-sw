@@ -25,11 +25,8 @@ const description =
 ---
 
 <Base title={title} description={description} ogImage="/images/famipaka.jpg">
-  <section class="gallery" data-reveal>
-    <h1>釣果ギャラリー</h1>
-    <p class="gallery__lead">
-      直近2年間の釣果写真をまとめました。真鯛・青物・根魚・白イカなど、山陰の豊かな海の恵みをご覧ください。
-    </p>
+  <section class="gallery page">
+    <h1 class="visually-hidden">釣果ギャラリー</h1>
 
     <div class="gallery__grid">
       {
@@ -68,19 +65,6 @@ const description =
 <style>
   .gallery {
     max-width: 1180px;
-  }
-  .gallery h1 {
-    font-family: var(--font-head);
-    font-size: clamp(1.8rem, 6vw, 2.6rem);
-    text-align: center;
-    color: var(--navy-900);
-    letter-spacing: 0.06em;
-  }
-  .gallery__lead {
-    text-align: center;
-    color: var(--ink-soft);
-    margin: 0.8rem auto 2.2rem;
-    max-width: 640px;
   }
   .gallery__grid {
     column-count: 2;

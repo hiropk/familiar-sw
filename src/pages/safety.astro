@@ -1,0 +1,72 @@
+---
+import Base from "../layouts/Base.astro";
+
+const title = "安全情報 | 山陰遊漁船ファミリア（松江・鹿島マリーナ）";
+const description =
+  "島根県松江市・鹿島マリーナ発着の遊漁船ファミリアの安全情報。業務規程と遊漁船業者登録票を掲載しています。";
+---
+
+<Base title={title} description={description}>
+  <section id="safety" class="page">
+    <h1 class="visually-hidden">安全情報</h1>
+    <div class="slideshow-container">
+      <svg
+        id="prevBtn"
+        class="prev"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="white"
+      >
+        <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"></path>
+      </svg>
+      <img class="slides active" src="/images/safety_info/hyou4.jpg" alt="業務規定別表4" />
+      <img class="slides" src="/images/safety_info/hyou6.jpg" alt="業務規定別表6" />
+      <img class="slides" src="/images/safety_info/hyou6-1.jpg" alt="業務規定別表6別添" />
+      <img class="slides" src="/images/safety_info/hyou7.jpg" alt="業務規定別表7" />
+      <img class="slides" src="/images/safety_info/hyou8.jpg" alt="業務規定別表8" />
+      <img class="slides" src="/images/safety_info/hyou10.jpg" alt="業務規定別表10" />
+      <img class="slides" src="/images/safety_info/hyou11.jpg" alt="業務規定別表11" />
+      <img class="slides" src="/images/safety_info/hyou12.jpg" alt="業務規定別表12" />
+      <img
+        class="slides"
+        src="/images/safety_info/tourokuhyou_20261101.png"
+        alt="遊漁船業者登録票"
+      />
+      <svg
+        id="nextBtn"
+        class="next"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="white"
+      >
+        <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
+      </svg>
+    </div>
+    <p class="page__note">
+      ※営業所は自宅兼用のため住所の表示を控えております。船には掲示があります。営業所の住所については開示を求められれば利用目的を確認の上開示します。
+    </p>
+  </section>
+</Base>
+
+<script>
+  const slides = document.querySelectorAll<HTMLElement>(".slides");
+  if (slides.length > 0) {
+    let currentIndex = 0;
+    const showSlide = (index: number) => {
+      slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+    };
+    document.getElementById("nextBtn")?.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    });
+    document.getElementById("prevBtn")?.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    });
+    showSlide(currentIndex);
+  }
+</script>

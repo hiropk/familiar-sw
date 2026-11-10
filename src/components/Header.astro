@@ -1,49 +1,44 @@
 ---
 // サイト共通ヘッダー（ロゴ・ナビ・SNS・ハンバーガー）
+interface Props {
+  overlay?: boolean;
+}
+const { overlay = false } = Astro.props;
+
 const navItems = [
   { href: "/", label: "トップ" },
-  { href: "/#schedule", label: "出船スケジュール" },
-  { href: "/#pricing", label: "乗船料金" },
-  { href: "/#boat", label: "船の紹介" },
-  { href: "/#captain", label: "船長の紹介" },
-  { href: "/#boarding", label: "乗船案内" },
-  { href: "/#register", label: "乗船名簿" },
-  { href: "/#safety", label: "安全情報" },
+  { href: "/about", label: "紹介" },
+  { href: "/safety", label: "安全情報" },
   { href: "/gallery", label: "ギャラリー" },
-  { href: "/#weather", label: "天気" },
-  { href: "/#links", label: "リンク" },
+  { href: "/links", label: "リンク" },
 ];
 ---
 
+<header
+  id="top"
+  class:list={["site-header", { "site-header--overlay": overlay }]}
+>
 <div class="header__inner">
   <a class="brand" href="/" aria-label="遊漁船ファミリア トップへ">
     <img
       class="brand__icon"
       id="icon"
       src="/images/famipaka.jpg"
-      width="48"
-      height="48"
-      alt="遊漁船ファミリア"
+      width="40"
+      height="40"
+      alt=""
     />
     <span class="brand__text">
       <span class="brand__pref">島根県1352</span>
-      <span class="brand__name">遊漁船ファミリア</span>
+      <img
+        class="brand__name"
+        src="/images/background/familiar_string.png"
+        alt="遊漁船ファミリア"
+        width="150"
+        height="29"
+      />
     </span>
   </a>
-
-  <nav id="nav-menu" class="nav" aria-label="メインメニュー" aria-hidden="true">
-    <ul class="nav__list">
-      {
-        navItems.map((item) => (
-          <li class="nav__item">
-            <a href={item.href} class="nav__link">
-              {item.label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
 
   <div class="header__actions">
     <a
@@ -70,14 +65,43 @@ const navItems = [
       aria-controls="nav-menu"
       aria-expanded="false"
     >
-      <span class="hamburger__line"></span>
-      <span class="hamburger__line"></span>
-      <span class="hamburger__line"></span>
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+        <path
+          class="hamburger__bars"
+          d="M3 6h16M3 11h16M3 16h16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"></path>
+        <path
+          class="hamburger__close"
+          d="M6 6l10 10M16 6L6 16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"></path>
+      </svg>
     </button>
   </div>
 
-  <div class="nav__backdrop" hidden></div>
 </div>
+</header>
+
+<nav id="nav-menu" class="nav" aria-label="メインメニュー" aria-hidden="true">
+  <ul class="nav__list">
+    {
+      navItems.map((item) => (
+        <li class="nav__item">
+          <a href={item.href} class="nav__link">
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<div class="nav__backdrop" hidden></div>
 
 <script>
   // ハンバーガーメニューの開閉（モバイル）

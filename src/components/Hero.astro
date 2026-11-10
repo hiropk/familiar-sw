@@ -1,18 +1,17 @@
 ---
 import { Image } from "astro:assets";
 
-// ヒーロー＝釣果のベストショット＋海の風景（人物なしの夕日）を自動切替で表示。
-// 魚写真はギャラリーと共有（同一ファイルを指定）。差し替えたい場合はこの配列を編集。
-import sunset from "../assets/hero/gallery-026.jpg";
-import madai1 from "../assets/gallery/gallery-017.jpg";
-import hiramasa from "../assets/gallery/gallery-091.jpg";
-import madai2 from "../assets/gallery/gallery-028.jpg";
-import buri1 from "../assets/gallery/gallery-050.jpg";
-import kue from "../assets/gallery/gallery-070.jpg";
-import buri2 from "../assets/gallery/gallery-037.jpg";
-import amadai from "../assets/gallery/gallery-018.jpg";
+// ヒーロー写真。ギャラリーと共有。差し替えはこの配列の順。
+import g027 from "../assets/gallery/gallery-027.jpg";
+import g054 from "../assets/gallery/gallery-054.jpg";
+import g053 from "../assets/gallery/gallery-053.jpg";
+import g086 from "../assets/gallery/gallery-086.jpg";
+import g095 from "../assets/gallery/gallery-095.jpg";
+import g096 from "../assets/gallery/gallery-096.jpg";
+import g087 from "../assets/gallery/gallery-087.jpg";
+import g063 from "../assets/gallery/gallery-063.jpg";
 
-const picked = [madai1, hiramasa, sunset, madai2, buri1, kue, buri2, amadai];
+const picked = [g027, g054, g053, g086, g095, g096, g087, g063];
 ---
 
 <section id="hero" class="hero">
@@ -36,21 +35,40 @@ const picked = [madai1, hiramasa, sunset, madai2, buri1, kue, buri2, amadai];
   </div>
 
   <div class="hero__content">
-    <p class="hero__eyebrow">SLJ / LJ 山陰遊漁船</p>
-    <h1 class="hero__title">遊漁船ファミリア</h1>
-    <p class="hero__sub">島根県松江市・鹿島マリーナ発着</p>
-    <div class="hero__actions">
-      <a class="hero__cta" href="#schedule">出船スケジュールを見る</a>
-      <a
-        class="hero__cta hero__cta--line"
-        href="https://lin.ee/fipwyGn"
-        target="_blank"
-        rel="noopener noreferrer">LINEで予約</a
-      >
+    <div class="hero__card">
+      <div class="hero__brand">
+        <div class="hero__brand-text">
+          <h1 class="hero__title">
+            <img
+              class="hero__logo"
+              src="/images/background/familiar_string.png"
+              alt="遊漁船ファミリア"
+              width="280"
+              height="54"
+            />
+          </h1>
+        </div>
+      </div>
+      <p>
+        ご予約は以下のLINEまでお願いします<br />
+        釣果情報は<a
+          href="https://www.instagram.com/familiar_matsue/"
+          target="_blank"
+          rel="noopener noreferrer">Instagram</a
+        >へ！
+      </p>
+      <a class="hero__line" href="https://lin.ee/fipwyGn">
+        <img
+          src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png"
+          alt="友だち追加"
+          width="121"
+          height="38"
+        />
+      </a>
     </div>
   </div>
 
-  <a class="hero__scroll" href="#greeting" aria-label="下にスクロール">
+  <a class="hero__scroll" href="#schedule" aria-label="下にスクロール">
     <span></span>
   </a>
 </section>

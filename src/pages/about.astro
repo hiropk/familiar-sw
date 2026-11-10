@@ -1,0 +1,24 @@
+---
+import Base from "../layouts/Base.astro";
+import FamilyHero from "../components/FamilyHero.astro";
+
+const title = "紹介 | 山陰遊漁船ファミリア（松江・鹿島マリーナ）";
+const description =
+  "島根県松江市・鹿島マリーナ発着の遊漁船ファミリア。ヤマハ26ftの船と、船長・加納寛之のご紹介です。";
+---
+
+<Base title={title} description={description} heroOverlay>
+  <FamilyHero />
+
+  <section id="about" class="page">
+    <h1 class="visually-hidden">紹介</h1>
+
+    <div id="boat">
+      <h2>船の紹介</h2>
+      <p>ヤマハ26ft（175馬力）</p>
+      <p>釣り定員6名（チャーター7名）</p>
+      <p>水洗マリントイレ</p>
+      <img src="/images/ship/boat.jpg" alt="遊漁船ファミリアの船" />
+    </div>
+  </section>
+</Base>
