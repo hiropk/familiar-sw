@@ -181,6 +181,7 @@ h3 {
   font-weight: 700;
   font-size: 1.05rem;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 /* nav */
@@ -360,9 +361,10 @@ h3 {
 .hero__title {
   font-family: var(--font-body);
   color: var(--white);
-  font-size: clamp(2.6rem, 11vw, 5.5rem);
+  font-size: clamp(2rem, 9vw, 5.5rem);
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
   text-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
 }
 .hero__sub {
