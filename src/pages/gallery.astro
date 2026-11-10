@@ -1,0 +1,234 @@
+---
+import Base from "../layouts/Base.astro";
+import { Image, getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+// ギャラリー写真（直近2年の釣果・四季の風景）をすべて読み込み
+const modules = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/gallery/*.{jpg,jpeg,JPG,JPEG,png,PNG}",
+  { eager: true }
+);
+const images = Object.entries(modules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, m]) => m.default);
+
+// ライトボックス用の大きめ最適化画像を事前生成
+const fulls = await Promise.all(
+  images.map((img) =>
+    getImage({ src: img, width: 1600, format: "webp", quality: 76 })
+  )
+);
+
+const title = "釣果ギャラリー | 山陰遊漁船ファミリア（松江・鹿島マリーナ）";
+const description =
+  "島根県松江市・鹿島マリーナ発着の遊漁船ファミリアの釣果ギャラリー。真鯛・青物・根魚・白イカなど、SLJ・LJ・タイラバ・イカメタルの釣果写真をご覧いただけます。";
+---
+
+<Base title={title} description={description} ogImage="/images/famipaka.jpg">
+  <section class="gallery page">
+    <h1 class="visually-hidden">釣果ギャラリー</h1>
+
+    <div class="gallery__grid">
+      {
+        images.map((img, i) => (
+          <button
+            type="button"
+            class="gallery__item"
+            data-full={fulls[i].src}
+            data-index={i}
+            aria-label={`写真 ${i + 1} を拡大表示`}
+          >
+            <Image
+              src={img}
+              alt={`遊漁船ファミリアの釣果 ${i + 1}`}
+              widths={[300, 600]}
+              sizes="(max-width: 600px) 45vw, (max-width: 1024px) 30vw, 260px"
+              quality={70}
+              loading="lazy"
+            />
+          </button>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ライトボックス -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="写真の拡大表示">
+    <button class="lightbox__close" aria-label="閉じる">&times;</button>
+    <button class="lightbox__nav lightbox__prev" aria-label="前の写真">&#10094;</button>
+    <img class="lightbox__img" src="" alt="" />
+    <button class="lightbox__nav lightbox__next" aria-label="次の写真">&#10095;</button>
+    <div class="lightbox__counter"></div>
+  </div>
+</Base>
+
+<style>
+  .gallery {
+    max-width: 1180px;
+  }
+  .gallery__grid {
+    column-count: 2;
+    column-gap: 10px;
+  }
+  @media (min-width: 640px) {
+    .gallery__grid {
+      column-count: 3;
+      column-gap: 12px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .gallery__grid {
+      column-count: 4;
+      column-gap: 14px;
+    }
+  }
+  .gallery__item {
+    display: block;
+    width: 100%;
+    margin: 0 0 10px;
+    padding: 0;
+    border: none;
+    background: var(--sand);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: zoom-in;
+    break-inside: avoid;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  }
+  .gallery__item :global(img) {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s var(--ease);
+  }
+  .gallery__item:hover {
+    box-shadow: var(--shadow);
+  }
+  .gallery__item:hover :global(img) {
+    transform: scale(1.05);
+  }
+  .gallery__item:focus-visible {
+    outline: 3px solid var(--sunset);
+    outline-offset: 2px;
+  }
+
+  /* lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8, 24, 38, 0.92);
+    backdrop-filter: blur(4px);
+    padding: clamp(1rem, 4vw, 3rem);
+  }
+  .lightbox.is-open {
+    display: flex;
+    animation: fade-in 0.25s var(--ease);
+  }
+  .lightbox__img {
+    max-width: 100%;
+    max-height: 86vh;
+    border-radius: 8px;
+    box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7);
+    object-fit: contain;
+  }
+  .lightbox__close,
+  .lightbox__nav {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.25s var(--ease);
+  }
+  .lightbox__close:hover,
+  .lightbox__nav:hover {
+    background: rgba(255, 255, 255, 0.28);
+  }
+  .lightbox__close {
+    top: clamp(0.8rem, 3vw, 1.6rem);
+    right: clamp(0.8rem, 3vw, 1.6rem);
+    width: 48px;
+    height: 48px;
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .lightbox__nav {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
+  }
+  .lightbox__prev {
+    left: clamp(0.5rem, 2vw, 1.5rem);
+  }
+  .lightbox__next {
+    right: clamp(0.5rem, 2vw, 1.5rem);
+  }
+  .lightbox__counter {
+    position: absolute;
+    bottom: clamp(0.8rem, 3vw, 1.6rem);
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+  }
+</style>
+
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const items = Array.from(
+    document.querySelectorAll<HTMLButtonElement>(".gallery__item")
+  );
+  if (lightbox && items.length) {
+    const imgEl = lightbox.querySelector<HTMLImageElement>(".lightbox__img")!;
+    const counter = lightbox.querySelector<HTMLElement>(".lightbox__counter")!;
+    const closeBtn = lightbox.querySelector<HTMLButtonElement>(".lightbox__close")!;
+    const prevBtn = lightbox.querySelector<HTMLButtonElement>(".lightbox__prev")!;
+    const nextBtn = lightbox.querySelector<HTMLButtonElement>(".lightbox__next")!;
+    let current = 0;
+
+    const show = (i: number) => {
+      current = (i + items.length) % items.length;
+      const btn = items[current];
+      imgEl.src = btn.dataset.full || "";
+      imgEl.alt = `遊漁船ファミリアの釣果 ${current + 1}`;
+      counter.textContent = `${current + 1} / ${items.length}`;
+    };
+    const open = (i: number) => {
+      show(i);
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("nav-open");
+    };
+    const close = () => {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("nav-open");
+    };
+
+    items.forEach((btn, i) => btn.addEventListener("click", () => open(i)));
+    closeBtn.addEventListener("click", close);
+    prevBtn.addEventListener("click", () => show(current - 1));
+    nextBtn.addEventListener("click", () => show(current + 1));
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("is-open")) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") show(current - 1);
+      else if (e.key === "ArrowRight") show(current + 1);
+    });
+  }
+</script>

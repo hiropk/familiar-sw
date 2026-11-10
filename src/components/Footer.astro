@@ -1,0 +1,54 @@
+---
+const year = new Date().getFullYear();
+
+const links = [
+  { href: "/#schedule", label: "出船スケジュール" },
+  { href: "/#pricing", label: "料金" },
+  { href: "/gallery", label: "ギャラリー" },
+  { href: "/kashima-marina", label: "アクセス" },
+];
+---
+
+<div class="footer__inner">
+  <a class="footer__brand" href="/" aria-label="遊漁船ファミリア トップへ">
+    <img class="footer__icon" src="/images/famipaka.jpg" width="44" height="44" alt="" />
+    <span class="footer__brand-text">
+      <span class="footer__pref">島根県1352</span>
+      <img
+        class="footer__logo"
+        src="/images/background/familiar_string.png"
+        alt="遊漁船ファミリア"
+        width="150"
+        height="29"
+      />
+    </span>
+  </a>
+  <p class="footer__addr">島根県松江市鹿島町佐陀本郷1371-1 鹿島マリーナ</p>
+
+  <nav class="footer__nav" aria-label="フッターメニュー">
+    {
+      links.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))
+    }
+  </nav>
+
+  <div class="footer__social">
+    <a
+      href="https://www.instagram.com/familiar_matsue/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a
+    >
+    <a
+      href="https://lin.ee/fipwyGn"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LINE"><i class="fa-brands fa-line"></i></a
+    >
+  </div>
+</div>
+
+<p class="footer__copy">
+  &copy; {year} 島根県1352 遊漁船ファミリア
+</p>

@@ -1,0 +1,92 @@
+---
+import { Image } from "astro:assets";
+
+// ヒーロー写真。ギャラリーと共有。差し替えはこの配列の順。
+import g027 from "../assets/gallery/gallery-027.jpg";
+import g054 from "../assets/gallery/gallery-054.jpg";
+import g053 from "../assets/gallery/gallery-053.jpg";
+import g086 from "../assets/gallery/gallery-086.jpg";
+import g095 from "../assets/gallery/gallery-095.jpg";
+import g096 from "../assets/gallery/gallery-096.jpg";
+import g087 from "../assets/gallery/gallery-087.jpg";
+import g063 from "../assets/gallery/gallery-063.jpg";
+
+const picked = [g027, g054, g053, g086, g095, g096, g087, g063];
+---
+
+<section id="hero" class="hero">
+  <div class="hero__slideshow" aria-hidden="true">
+    {
+      picked.map((img, i) => (
+        <div class:list={["hero__slide", { "is-active": i === 0 }]}>
+          <Image
+            src={img}
+            alt=""
+            widths={[768, 1280, 1920]}
+            sizes="100vw"
+            quality={72}
+            loading={i === 0 ? "eager" : "lazy"}
+            fetchpriority={i === 0 ? "high" : "auto"}
+          />
+        </div>
+      ))
+    }
+    <div class="hero__scrim"></div>
+  </div>
+
+  <div class="hero__content">
+    <div class="hero__card">
+      <div class="hero__brand">
+        <div class="hero__brand-text">
+          <h1 class="hero__title">
+            <img
+              class="hero__logo"
+              src="/images/background/familiar_string.png"
+              alt="遊漁船ファミリア"
+              width="280"
+              height="54"
+            />
+          </h1>
+        </div>
+      </div>
+      <p>
+        ご予約は以下のLINEまでお願いします<br />
+        釣果情報は<a
+          href="https://www.instagram.com/familiar_matsue/"
+          target="_blank"
+          rel="noopener noreferrer">Instagram</a
+        >へ！
+      </p>
+      <a class="hero__line" href="https://lin.ee/fipwyGn">
+        <img
+          src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png"
+          alt="友だち追加"
+          width="121"
+          height="38"
+        />
+      </a>
+    </div>
+  </div>
+
+  <a class="hero__scroll" href="#schedule" aria-label="下にスクロール">
+    <span></span>
+  </a>
+</section>
+
+<script>
+  // ヒーロースライドショー（クロスフェード＋Ken Burns）
+  const slides = document.querySelectorAll<HTMLElement>(".hero__slide");
+  if (slides.length > 1) {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (!prefersReduced) {
+      let idx = 0;
+      setInterval(() => {
+        slides[idx].classList.remove("is-active");
+        idx = (idx + 1) % slides.length;
+        slides[idx].classList.add("is-active");
+      }, 6000);
+    }
+  }
+</script>

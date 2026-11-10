@@ -1,0 +1,150 @@
+---
+// サイト共通ヘッダー（ロゴ・ナビ・SNS・ハンバーガー）
+interface Props {
+  overlay?: boolean;
+}
+const { overlay = false } = Astro.props;
+
+const navItems = [
+  { href: "/", label: "トップ" },
+  { href: "/about", label: "紹介" },
+  { href: "/safety", label: "安全情報" },
+  { href: "/gallery", label: "ギャラリー" },
+  { href: "/links", label: "リンク" },
+];
+---
+
+<header
+  id="top"
+  class:list={["site-header", { "site-header--overlay": overlay }]}
+>
+<div class="header__inner">
+  <a class="brand" href="/" aria-label="遊漁船ファミリア トップへ">
+    <img
+      class="brand__icon"
+      id="icon"
+      src="/images/famipaka.jpg"
+      width="40"
+      height="40"
+      alt=""
+    />
+    <span class="brand__text">
+      <span class="brand__pref">島根県1352</span>
+      <img
+        class="brand__name"
+        src="/images/background/familiar_string.png"
+        alt="遊漁船ファミリア"
+        width="150"
+        height="29"
+      />
+    </span>
+  </a>
+
+  <div class="header__actions">
+    <a
+      class="social social--insta"
+      href="https://www.instagram.com/familiar_matsue/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+    >
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a
+      class="social social--line"
+      href="https://lin.ee/fipwyGn"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LINE"
+    >
+      <i class="fa-brands fa-line"></i>
+    </a>
+    <button
+      class="hamburger"
+      aria-label="メニューを開く"
+      aria-controls="nav-menu"
+      aria-expanded="false"
+    >
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+        <path
+          class="hamburger__bars"
+          d="M3 6h16M3 11h16M3 16h16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"></path>
+        <path
+          class="hamburger__close"
+          d="M6 6l10 10M16 6L6 16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"></path>
+      </svg>
+    </button>
+  </div>
+
+</div>
+</header>
+
+<nav id="nav-menu" class="nav" aria-label="メインメニュー" aria-hidden="true">
+  <ul class="nav__list">
+    {
+      navItems.map((item) => (
+        <li class="nav__item">
+          <a href={item.href} class="nav__link">
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<div class="nav__backdrop" hidden></div>
+
+<script>
+  // ハンバーガーメニューの開閉（モバイル）
+  const hamburger = document.querySelector<HTMLButtonElement>(".hamburger");
+  const nav = document.querySelector<HTMLElement>(".nav");
+  const backdrop = document.querySelector<HTMLElement>(".nav__backdrop");
+
+  if (hamburger && nav) {
+    const closeMenu = () => {
+      hamburger.classList.remove("active");
+      nav.classList.remove("active");
+      hamburger.setAttribute("aria-expanded", "false");
+      hamburger.setAttribute("aria-label", "メニューを開く");
+      nav.setAttribute("aria-hidden", "true");
+      if (backdrop) backdrop.hidden = true;
+      document.body.classList.remove("nav-open");
+    };
+
+    const openMenu = () => {
+      hamburger.classList.add("active");
+      nav.classList.add("active");
+      hamburger.setAttribute("aria-expanded", "true");
+      hamburger.setAttribute("aria-label", "メニューを閉じる");
+      nav.setAttribute("aria-hidden", "false");
+      if (backdrop) backdrop.hidden = false;
+      document.body.classList.add("nav-open");
+    };
+
+    hamburger.addEventListener("click", () => {
+      if (hamburger.classList.contains("active")) closeMenu();
+      else openMenu();
+    });
+
+    backdrop?.addEventListener("click", closeMenu);
+
+    nav.querySelectorAll(".nav__link").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (nav.classList.contains("active")) closeMenu();
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && nav.classList.contains("active")) closeMenu();
+    });
+  }
+</script>

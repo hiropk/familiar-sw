@@ -1,0 +1,123 @@
+---
+import Base from "../layouts/Base.astro";
+import Hero from "../components/Hero.astro";
+---
+
+<Base heroOverlay>
+  <Hero />
+
+  <section id="schedule" data-reveal>
+    <h2>出船スケジュール</h2>
+    <div class="iframe-container">
+      <iframe
+        id="iframe"
+        frameborder="no"
+        scrolling="yes"
+        loading="lazy"
+        allowfullscreen
+        src="https://tsurimaru-calendar-captain.web.app/16682/?scrolling=yes"
+        style="min-height: 750px; width: 100%"></iframe>
+    </div>
+    <p>※乗合出船時の最低人数を2名です。</p>
+    <p>※予定が空の日付は定休日です。</p>
+    <p>※平日釣行は事前にご相談ください。</p>
+  </section>
+
+  <section id="pricing" data-reveal>
+    <h2>ご案内プラン</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>プラン</th>
+          <th>料金</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            乗合（ジギング・タイラバ・ボートロック・餌）<span>※遠征は追加料金あり</span>
+          </td>
+          <td>¥13,000<span>/1人</span></td>
+        </tr>
+        <tr>
+          <td>乗合（イカ・アジ）</td>
+          <td>¥11,000<span>/1人</span></td>
+        </tr>
+        <tr>
+          <td>チャーター（ジギング・タイラバ）<span>※7名の場合+¥11,000</span></td>
+          <td>¥66,000</td>
+        </tr>
+        <tr>
+          <td>チャーター（ボートロック・餌）</td>
+          <td>¥44,000</td>
+        </tr>
+        <tr>
+          <td>チャーター（白イカ・アジ）<span>※7名の場合+¥10,000</span></td>
+          <td>¥60,000</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>※その他メニューもご相談により受け付けます。</p>
+    <p>※お支払は現金のみ</p>
+  </section>
+
+  <section id="boarding" data-reveal>
+    <h2>乗船案内</h2>
+    <h3>住所</h3>
+    <p>島根県松江市鹿島町佐陀本郷１３７１−１<br />鹿島マリーナ</p>
+    <br />
+    <h3>乗船手順</h3>
+    <ol>
+      <li>マリーナ内の①②にお車を止めてください</li>
+      <li>
+        赤で示す<span style="color: red">桟橋</span
+        >に荷物を下ろし、お車を③④⑤にご移動ください
+      </li>
+      <li>
+        トイレを済ませて<span style="color: red">桟橋</span>でお待ちください
+      </li>
+      <li>乗船名簿へ必要事項をご入力ください</li>
+      <li>
+        集合時間を目安に<span style="color: red">桟橋</span>に船を付けます
+      </li>
+      <li>釣り座を決めて荷物を積み込み出船します</li>
+    </ol>
+    <br />
+    <img src="/images/jousenn.jpg" alt="乗船手順の案内図" />
+
+    <section id="register">
+      <div style="text-align: center">
+        <a
+          href="https://tsurimaru.jp/onlinepassengerlist/?fbid=LlmcJKotiwUjyuQJ4eHP7ZxkF6J3&openExternalBrowser=1"
+          class="button">乗船名簿はこちら</a
+        >
+      </div>
+    </section>
+
+    <h3>注意</h3>
+    <ul>
+      <li>
+        <strong
+          >黄色で示す駐車場はマリーナ契約者専用ですのでご利用はお控えください。</strong
+        >
+      </li>
+      <li>
+        イカ釣りを除き原則共用クーラーを使用します。飲食用のクーラーを除き、お客様ご自身のクーラーの積み込みはご遠慮ください。
+      </li>
+      <li>
+        共用クーラーの氷はこちらで用意します。お客様への氷も少量ご用意させていただきますが、量に限りがあるためご不安の場合は各自でのご用意をお願いします。
+      </li>
+    </ul>
+    <br />
+  </section>
+
+  <section id="weather" data-reveal>
+    <h2>天気</h2>
+    <div class="iframe-container">
+      <iframe
+        src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=default&metricTemp=°C&metricWind=m/s&zoom=8&overlay=wind&product=ecmwf&level=surface&lat=35.872&lon=133.096&message=true"
+        frameborder="0"
+        allowfullscreen></iframe>
+    </div>
+  </section>
+</Base>

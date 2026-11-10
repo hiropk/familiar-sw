@@ -1,0 +1,182 @@
+---
+import Base from "../layouts/Base.astro";
+
+// NOTE: 本文は集客(SEO)用の新規ドラフトです。料金・出船場所などの事実は既存サイトから流用しています。
+// シーズンや釣り物の表現は実績に合わせて加納さんのレビュー・修正をお願いします。
+const title =
+  "松江・鹿島マリーナ発 白イカ（ケンサキイカ）釣り｜山陰遊漁船ファミリア";
+const description =
+  "島根県松江市・鹿島マリーナ発着の遊漁船ファミリアで楽しむ白イカ（ケンサキイカ）釣り。イカメタル・鉛スッテで、元学校の先生の船長が初心者にも優しくご案内。乗合・チャーターの料金とご予約はこちら。";
+---
+
+<Base title={title} description={description}>
+  <article class="lp">
+    <header class="lp__hero">
+      <p class="lp__eyebrow">松江・鹿島マリーナ発</p>
+      <h1>白イカ（ケンサキイカ）釣り</h1>
+      <p class="lp__lead">
+        山陰・島根の夏から秋を彩る白イカ（ケンサキイカ）。イカメタルや鉛スッテで、夜の日本海を満喫できる人気の釣りです。元学校の先生の船長が、初めての方にも道具の使い方からていねいにご案内します。
+      </p>
+      <div class="lp__cta-row">
+        <a class="btn btn--line" href="https://lin.ee/fipwyGn" target="_blank" rel="noopener noreferrer">LINEで予約する</a>
+        <a class="btn btn--ghost" href="/#schedule">出船スケジュールを見る</a>
+      </div>
+    </header>
+
+    <section class="lp__block" data-reveal>
+      <h2>白イカ釣りの楽しみ方</h2>
+      <p>
+        ファミリアの白イカ便は、イカメタル・鉛スッテを中心とした釣りです。難しそうに見えて、コツをつかめば女性やお子さま、初心者の方でも釣果を楽しめます。タックルの選び方や誘い方は船長が当日サポートしますので、手ぶらに近い状態でもお気軽にご参加ください。
+      </p>
+      <p>
+        例年、初夏から秋にかけてがシーズンの目安です。その日の状況は <a href="https://www.instagram.com/familiar_matsue/" target="_blank" rel="noopener noreferrer">Instagram</a> の釣果情報もご参考ください。
+      </p>
+    </section>
+
+    <section class="lp__block" data-reveal>
+      <h2>白イカ便の料金</h2>
+      <table class="lp__table">
+        <thead>
+          <tr><th>プラン</th><th>料金</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>乗合（イカ・アジ）</td>
+            <td>¥11,000 / 1人</td>
+          </tr>
+          <tr>
+            <td>チャーター（白イカ・アジ）<br /><small>※7名の場合 +¥10,000</small></td>
+            <td>¥60,000</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="lp__note">※お支払は現金のみ。その他メニューもご相談により受け付けます。</p>
+      <p class="lp__note">※乗合出船時の最低人数は2名です。詳しくは <a href="/#pricing">ご案内プラン</a> をご覧ください。</p>
+    </section>
+
+    <section class="lp__block" data-reveal>
+      <h2>出船場所・ご予約</h2>
+      <p>
+        出船は <a href="/kashima-marina">鹿島マリーナ（島根県松江市鹿島町佐陀本郷1371-1）</a> から。ご予約・空き状況のお問い合わせは公式LINEが便利です。
+      </p>
+      <div class="lp__cta-row">
+        <a class="btn btn--line" href="https://lin.ee/fipwyGn" target="_blank" rel="noopener noreferrer">LINEで予約する</a>
+        <a class="btn btn--ghost" href="/gallery">釣果ギャラリーを見る</a>
+      </div>
+    </section>
+  </article>
+</Base>
+
+<style>
+  .lp {
+    max-width: 820px;
+    margin-inline: auto;
+    padding: clamp(2rem, 6vw, 4rem) clamp(1.1rem, 4vw, 2rem) 4rem;
+  }
+  .lp__hero {
+    text-align: center;
+    padding: 1rem 0 2.4rem;
+  }
+  .lp__eyebrow {
+    letter-spacing: 0.2em;
+    color: var(--teal);
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  .lp__hero h1 {
+    font-size: clamp(1.9rem, 7vw, 3rem);
+    letter-spacing: 0.06em;
+    margin: 0.4rem 0 1rem;
+  }
+  .lp__lead {
+    color: var(--ink-soft);
+    line-height: 2;
+    max-width: 680px;
+    margin-inline: auto;
+  }
+  .lp__block {
+    margin-top: 3rem;
+  }
+  .lp__block h2 {
+    font-family: var(--font-head);
+    font-size: clamp(1.4rem, 5vw, 1.9rem);
+    color: var(--navy-900);
+    padding-bottom: 0.7rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 2px solid var(--sand-line);
+  }
+  .lp__block p {
+    line-height: 2;
+    margin-bottom: 1rem;
+  }
+  .lp__table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--cream-50);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+  }
+  .lp__table th {
+    background: var(--navy);
+    color: #fff;
+    font-family: var(--font-head);
+    padding: 0.9rem;
+    letter-spacing: 0.06em;
+  }
+  .lp__table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--sand-line);
+    text-align: center;
+  }
+  .lp__table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  .lp__table td:last-child {
+    font-family: var(--font-head);
+    font-weight: 700;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+  .lp__note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .lp__cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-top: 1.6rem;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.8rem;
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s var(--ease), background 0.25s var(--ease);
+  }
+  .btn:hover {
+    transform: translateY(-3px);
+  }
+  .btn--line {
+    background: #06c755;
+    color: #fff;
+  }
+  .btn--line:hover {
+    background: #05a648;
+  }
+  .btn--ghost {
+    background: var(--cream-50);
+    color: var(--navy);
+    border: 1px solid var(--sand-line);
+    box-shadow: var(--shadow-sm);
+  }
+</style>
