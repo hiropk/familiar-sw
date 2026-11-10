@@ -1,5 +1,9 @@
+---
+// サイト共通ヘッダー（ロゴ・SNSアイコン・ハンバーガー・ナビ）
+---
+
 <div class="logo">
-  <img src="./images/famipaka.jpg" id="icon" />
+  <img src="/images/famipaka.jpg" id="icon" alt="遊漁船ファミリア" />
   <h1>
     島根県1352<br />
     遊漁船ファミリア
@@ -16,11 +20,7 @@
     ></i>
   </a>
   <p>&nbsp;</p>
-  <a
-    href="https://lin.ee/fipwyGn"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
+  <a href="https://lin.ee/fipwyGn" target="_blank" rel="noopener noreferrer">
     <i class="fa-brands fa-line fa-2x line" style="color: green"></i>
   </a>
 </div>
@@ -68,3 +68,41 @@
     </li>
   </ul>
 </nav>
+
+<script>
+  // ハンバーガーメニューの開閉
+  const hamburger = document.querySelector(".hamburger");
+  const nav = document.querySelector(".nav");
+
+  if (hamburger && nav) {
+    const closeMenu = () => {
+      hamburger.classList.remove("active");
+      nav.classList.remove("active");
+      hamburger.setAttribute("aria-expanded", "false");
+      nav.setAttribute("aria-hidden", "true");
+    };
+
+    hamburger.addEventListener("click", () => {
+      const willOpen = !hamburger.classList.contains("active");
+      hamburger.classList.toggle("active", willOpen);
+      nav.classList.toggle("active", willOpen);
+      hamburger.setAttribute("aria-expanded", String(willOpen));
+      nav.setAttribute("aria-hidden", String(!willOpen));
+    });
+
+    document.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      if (
+        !target.closest(".nav") &&
+        !target.closest(".hamburger") &&
+        nav.classList.contains("active")
+      ) {
+        closeMenu();
+      }
+    });
+
+    nav.querySelector(".nav__list")?.addEventListener("click", () => {
+      if (nav.classList.contains("active")) closeMenu();
+    });
+  }
+</script>

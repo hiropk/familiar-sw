@@ -1,0 +1,76 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  /** OGP画像の絶対/ルート相対パス */
+  ogImage?: string;
+}
+
+const {
+  title = "SLJ・LJの山陰遊漁船ファミリア",
+  description = "島根県松江市・鹿島マリーナ発着の遊漁船ファミリア。SLJ・LJ・タイラバ・白イカなど、元学校の先生が優しくご案内します。",
+  ogImage = "/images/famipaka.jpg",
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="google-site-verification"
+      content="TzW8ZE0UmV61LgtnY9lT0rdJjvTnAtwILYfolrdKIPM"
+    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" href="/images/famipaka.jpg" />
+    <link rel="icon" href="/images/favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/e172613f19.js"
+      crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-3VBP3BY65H"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-3VBP3BY65H");
+    </script>
+  </head>
+
+  <body class="kiwi-maru-regular">
+    <header id="top"><Header /></header>
+
+    <slot />
+
+    <footer><Footer /></footer>
+  </body>
+</html>
