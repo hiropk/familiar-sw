@@ -1,6 +1,57 @@
 ---
-// サイト共通フッター
+// サイト共通フッター（内部リンク／SNS／著作権）
 const year = new Date().getFullYear();
+
+const colMain = [
+  { href: "/", label: "トップ" },
+  { href: "/#schedule", label: "出船スケジュール" },
+  { href: "/#pricing", label: "乗船料金" },
+  { href: "/#boat", label: "船の紹介" },
+  { href: "/#captain", label: "船長の紹介" },
+];
+const colGuide = [
+  { href: "/kashima-marina", label: "鹿島マリーナ発着・アクセス" },
+  { href: "/shiroika", label: "白イカ（ケンサキイカ）釣り" },
+  { href: "/gallery", label: "釣果・季節ギャラリー" },
+  { href: "/#safety", label: "安全情報" },
+  { href: "/#links", label: "リンク" },
+];
 ---
 
-<p>&copy; {year} 島根県1352 遊漁船ファミリア. All Rights Reserved.</p>
+<div class="footer__inner">
+  <div class="footer__brand">
+    <img src="/images/famipaka.jpg" width="56" height="56" alt="遊漁船ファミリア" />
+    <div>
+      <p class="footer__name">山陰遊漁船ファミリア</p>
+      <p class="footer__addr">島根県松江市鹿島町佐陀本郷1371-1 鹿島マリーナ</p>
+    </div>
+  </div>
+
+  <nav class="footer__nav" aria-label="フッターメニュー">
+    <ul>
+      {colMain.map((i) => (<li><a href={i.href}>{i.label}</a></li>))}
+    </ul>
+    <ul>
+      {colGuide.map((i) => (<li><a href={i.href}>{i.label}</a></li>))}
+    </ul>
+  </nav>
+
+  <div class="footer__social">
+    <a
+      href="https://www.instagram.com/familiar_matsue/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a
+    >
+    <a
+      href="https://lin.ee/fipwyGn"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LINE"><i class="fa-brands fa-line"></i></a
+    >
+  </div>
+</div>
+
+<p class="footer__copy">
+  &copy; {year} 島根県1352 遊漁船ファミリア. All Rights Reserved.
+</p>
